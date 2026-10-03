@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 230" width="100%" height="100%">
+  <defs>
+    <radialGradient id="lng_glow" cx="85%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="lng_card_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#151824" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0.98" />
+    </linearGradient>
+
+    <linearGradient id="lng_border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#22d3ee" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0.5" />
+    </linearGradient>
+
+    <linearGradient id="lng_shine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <clipPath id="lng_clip">
+      <rect x="0" y="0" width="500" height="230" rx="16" />
+    </clipPath>
+  </defs>
+
+  <style>
+    .lng-mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace; }
+    .lng-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+
+    /* Animated Horizontal Language Bars */
+    @keyframes lng_fill1 { 0% { width: 0; } 100% { width: 202px; } }
+    @keyframes lng_fill2 { 0% { width: 0; } 100% { width: 144px; } }
+    @keyframes lng_fill3 { 0% { width: 0; } 100% { width: 45px; } }
+    @keyframes lng_fill4 { 0% { width: 0; } 100% { width: 36px; } }
+    @keyframes lng_fill5 { 0% { width: 0; } 100% { width: 23px; } }
+
+    .lng-b1 { animation: lng_fill1 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .lng-b2 { animation: lng_fill2 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .lng-b3 { animation: lng_fill3 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .lng-b4 { animation: lng_fill4 2.0s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .lng-b5 { animation: lng_fill5 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+    /* Shine Sweep */
+    @keyframes lng_shine_sweep {
+      0% { transform: translateX(-500px) skewX(-20deg); }
+      30%, 100% { transform: translateX(600px) skewX(-20deg); }
+    }
+    .lng-shine-bar {
+      animation: lng_shine_sweep 5.5s infinite ease-in-out 0.8s;
+    }
+  </style>
+
+  <g clip-path="url(#lng_clip)">
+    <rect x="0" y="0" width="500" height="230" fill="url(#lng_card_bg)" />
+    <rect x="0" y="0" width="500" height="230" fill="url(#lng_glow)" />
+
+    <!-- Card Header -->
+    <g transform="translate(24, 22)">
+      <circle cx="6" cy="6" r="4.5" fill="#a78bfa" />
+      <text x="18" y="10" class="lng-sans" font-size="15" font-weight="700" fill="#f8fafc">
+        Verified GitHub Languages
+      </text>
+      <text x="450" y="10" class="lng-mono" font-size="10.5" fill="#64748b" text-anchor="end">
+        1.48 MB Code • 29 Repos
+      </text>
+    </g>
+
+    <!-- Dividing Line -->
+    <line x1="24" y1="46" x2="476" y2="46" stroke="#334155" stroke-opacity="0.4" stroke-width="1" />
+
+    <!-- Compact Multi-Segment Header Progress Bar -->
+    <g transform="translate(24, 60)">
+      <rect x="0" y="0" width="452" height="9" rx="4.5" fill="#1e293b" />
+      <!-- Segment 1: TypeScript (43.4%) -->
+      <rect x="0" y="0" width="196" height="9" rx="4.5" fill="#818cf8" />
+      <!-- Segment 2: Python (33.5%) -->
+      <rect x="196" y="0" width="151" height="9" fill="#38bdf8" />
+      <!-- Segment 3: CSS (10.2%) -->
+      <rect x="347" y="0" width="46" height="9" fill="#f472b6" />
+      <!-- Segment 4: HTML (8.1%) -->
+      <rect x="393" y="0" width="37" height="9" fill="#fb923c" />
+      <!-- Segment 5: JavaScript (3.2%) -->
+      <rect x="430" y="0" width="15" height="9" fill="#fde047" />
+      <!-- Segment 6: Java & Others (1.6%) -->
+      <rect x="445" y="0" width="7" height="9" rx="3.5" fill="#34d399" />
+    </g>
+
+    <!-- Detailed Individual Language Bars (Exact Repo Bytes) -->
+    <g transform="translate(24, 88)">
+      <!-- 1. TypeScript -->
+      <g transform="translate(0, 0)">
+        <circle cx="5" cy="7" r="4" fill="#818cf8" />
+        <text x="16" y="10" class="lng-mono" font-size="12" fill="#f8fafc" font-weight="600">TypeScript</text>
+        <rect x="115" y="2" width="250" height="8" rx="4" fill="#1e293b" />
+        <rect class="lng-b1" x="115" y="2" width="109" height="8" rx="4" fill="#818cf8" />
+        <text x="450" y="10" class="lng-mono" font-size="11.5" font-weight="700" fill="#818cf8" text-anchor="end">43.4% (642 KB)</text>
+      </g>
+
+      <!-- 2. Python -->
+      <g transform="translate(0, 26)">
+        <circle cx="5" cy="7" r="4" fill="#38bdf8" />
+        <text x="16" y="10" class="lng-mono" font-size="12" fill="#f8fafc" font-weight="600">Python</text>
+        <rect x="115" y="2" width="250" height="8" rx="4" fill="#1e293b" />
+        <rect class="lng-b2" x="115" y="2" width="84" height="8" rx="4" fill="#38bdf8" />
+        <text x="450" y="10" class="lng-mono" font-size="11.5" font-weight="700" fill="#38bdf8" text-anchor="end">33.5% (495 KB)</text>
+      </g>
+
+      <!-- 3. CSS -->
+      <g transform="translate(0, 52)">
+        <circle cx="5" cy="7" r="4" fill="#f472b6" />
+        <text x="16" y="10" class="lng-mono" font-size="12" fill="#f8fafc" font-weight="600">CSS</text>
+        <rect x="115" y="2" width="250" height="8" rx="4" fill="#1e293b" />
+        <rect class="lng-b3" x="115" y="2" width="26" height="8" rx="4" fill="#f472b6" />
+        <text x="450" y="10" class="lng-mono" font-size="11.5" font-weight="700" fill="#f472b6" text-anchor="end">10.2% (151 KB)</text>
+      </g>
+
+      <!-- 4. HTML -->
+      <g transform="translate(0, 78)">
+        <circle cx="5" cy="7" r="4" fill="#fb923c" />
+        <text x="16" y="10" class="lng-mono" font-size="12" fill="#f8fafc" font-weight="600">HTML</text>
+        <rect x="115" y="2" width="250" height="8" rx="4" fill="#1e293b" />
+        <rect class="lng-b4" x="115" y="2" width="20" height="8" rx="4" fill="#fb923c" />
+        <text x="450" y="10" class="lng-mono" font-size="11.5" font-weight="700" fill="#fb923c" text-anchor="end">8.1% (120 KB)</text>
+      </g>
+
+      <!-- 5. JavaScript -->
+      <g transform="translate(0, 104)">
+        <circle cx="5" cy="7" r="4" fill="#fde047" />
+        <text x="16" y="10" class="lng-mono" font-size="12" fill="#f8fafc" font-weight="600">JavaScript</text>
+        <rect x="115" y="2" width="250" height="8" rx="4" fill="#1e293b" />
+        <rect class="lng-b5" x="115" y="2" width="8" height="8" rx="4" fill="#fde047" />
+        <text x="450" y="10" class="lng-mono" font-size="11.5" font-weight="700" fill="#fde047" text-anchor="end">3.2% (47 KB)</text>
+      </g>
+    </g>
+
+    <rect class="lng-shine-bar" x="0" y="0" width="80" height="230" fill="url(#lng_shine)" pointer-events="none" />
+    <rect x="1" y="1" width="498" height="228" rx="15" fill="none" stroke="url(#lng_border)" stroke-width="1.2" />
+  </g>
+</svg>

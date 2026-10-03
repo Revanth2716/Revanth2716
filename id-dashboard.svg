@@ -1,0 +1,392 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="id_bg_glow" cx="20%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="id_bg_glow2" cx="80%" cy="60%" r="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Holographic Foil Sweep -->
+    <linearGradient id="id_holo_sweep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="45%" stop-color="#22d3ee" stop-opacity="0" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.45">
+        <animate attributeName="stop-opacity" values="0.1;0.6;0.1" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="55%" stop-color="#f472b6" stop-opacity="0.4" />
+      <stop offset="60%" stop-color="#a78bfa" stop-opacity="0" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Metal Clasp Gradient -->
+    <linearGradient id="id_metal_grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="30%" stop-color="#cbd5e1" />
+      <stop offset="50%" stop-color="#f8fafc" />
+      <stop offset="70%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+
+    <!-- Gold Smart Chip Gradient -->
+    <linearGradient id="id_gold_chip" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047" />
+      <stop offset="50%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#ca8a04" />
+    </linearGradient>
+
+    <!-- Glass Card Gradient -->
+    <linearGradient id="id_card_grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#181c2e" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0e111d" stop-opacity="0.98" />
+    </linearGradient>
+
+    <!-- Border Gradients -->
+    <linearGradient id="id_border_main" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#a78bfa" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0.5" />
+    </linearGradient>
+
+    <!-- Traveling Light Gradient for Avatar Ring -->
+    <conicGradient id="id_ring_light" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="30%" stop-color="#a78bfa" />
+      <stop offset="60%" stop-color="#f472b6" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </conicGradient>
+
+    <!-- Dot Pattern -->
+    <pattern id="id_dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#64748b" fill-opacity="0.1" />
+    </pattern>
+
+    <!-- Clip Path for ID Card -->
+    <clipPath id="id_card_clip">
+      <rect x="0" y="0" width="280" height="420" rx="16" />
+    </clipPath>
+  </defs>
+
+  <style>
+    .id-mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace; }
+    .id-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+
+    /* Drop in from top + Damped Pendulum Physics Swing + Gentle Forever Sway */
+    @keyframes id_drop_in {
+      0% { transform: translateY(-140px) rotate(-18deg); opacity: 0; }
+      22% { transform: translateY(0px) rotate(13deg); opacity: 1; }
+      42% { transform: rotate(-8deg); }
+      60% { transform: rotate(4deg); }
+      76% { transform: rotate(-2deg); }
+      88% { transform: rotate(0.8deg); }
+      100% { transform: rotate(0deg); opacity: 1; }
+    }
+    @keyframes id_sway_forever {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(2.2deg); }
+      75% { transform: rotate(-2.2deg); }
+    }
+    .id-swing-system {
+      transform-origin: 190px 0px;
+      animation: id_drop_in 3s cubic-bezier(0.22, 1, 0.36, 1) forwards, id_sway_forever 6.5s ease-in-out infinite 3s;
+    }
+
+    /* Light traveling around avatar ring */
+    @keyframes id_rotate_light {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .id-travel-light {
+      transform-origin: 140px 105px;
+      animation: id_rotate_light 4s linear infinite;
+    }
+
+    /* Holographic foil sweep motion */
+    @keyframes id_foil_move {
+      0% { transform: translate(-300px, -300px); }
+      100% { transform: translate(300px, 300px); }
+    }
+    .id-holo-layer {
+      animation: id_foil_move 6s ease-in-out infinite;
+    }
+
+    /* Bar Chart Fill Animations */
+    @keyframes id_bar_anim1 { 0% { width: 0; } 100% { width: 440px; } }
+    @keyframes id_bar_anim2 { 0% { width: 0; } 100% { width: 390px; } }
+    @keyframes id_bar_anim3 { 0% { width: 0; } 100% { width: 340px; } }
+    @keyframes id_bar_anim4 { 0% { width: 0; } 100% { width: 300px; } }
+    @keyframes id_bar_anim5 { 0% { width: 0; } 100% { width: 260px; } }
+
+    .id-bar-1 { animation: id_bar_anim1 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .id-bar-2 { animation: id_bar_anim2 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .id-bar-3 { animation: id_bar_anim3 2.0s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .id-bar-4 { animation: id_bar_anim4 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .id-bar-5 { animation: id_bar_anim5 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+    /* Pulsing Active Status */
+    @keyframes id_pulse_status {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+    .id-status-dot {
+      transform-origin: 48px 48px;
+      animation: id_pulse_status 2s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Canvas Container -->
+  <rect x="0" y="0" width="1200" height="580" rx="24" fill="#0d0e16" />
+  <rect x="0" y="0" width="1200" height="580" fill="url(#id_bg_glow)" />
+  <rect x="0" y="0" width="1200" height="580" fill="url(#id_bg_glow2)" />
+  <rect x="0" y="0" width="1200" height="580" fill="url(#id_dots)" rx="24" />
+  <rect x="1" y="1" width="1198" height="578" rx="23" fill="none" stroke="url(#id_border_main)" stroke-width="1.5" />
+
+  <!-- ==================== LEFT: SWINGING LANYARD ID BADGE ==================== -->
+  <g class="id-swing-system">
+    <!-- Lanyard Strap with Printed Text -->
+    <g transform="translate(170, 0)">
+      <!-- Strap Body -->
+      <path d="M 0 0 L 12 70 L 28 70 L 40 0 Z" fill="#3b1d28" stroke="#f472b6" stroke-opacity="0.4" stroke-width="1" />
+      <path d="M 8 0 L 16 70 L 24 70 L 32 0 Z" fill="#831843" />
+      <!-- Lanyard Printed Text -->
+      <text x="20" y="38" class="id-mono" font-size="8" font-weight="700" fill="#fbcfe8" text-anchor="middle" transform="rotate(90 20 38)">
+        REVANTH • ID: REV-2716
+      </text>
+    </g>
+
+    <!-- Metal Clasp & Ring -->
+    <g transform="translate(178, 70)">
+      <rect x="2" y="0" width="20" height="12" rx="3" fill="url(#id_metal_grad)" stroke="#1e293b" stroke-width="1" />
+      <circle cx="12" cy="18" r="8" fill="none" stroke="url(#id_metal_grad)" stroke-width="3" />
+      <circle cx="12" cy="18" r="5" fill="#0d0e16" />
+      <!-- Clip Pin -->
+      <path d="M 8 26 L 16 26 L 14 36 L 10 36 Z" fill="url(#id_metal_grad)" />
+    </g>
+
+    <!-- Hanging ID Card Container -->
+    <g transform="translate(50, 108)">
+      <!-- Card Outer Shadow / Drop -->
+      <rect x="0" y="0" width="280" height="420" rx="16" fill="url(#id_card_grad)" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1.5" />
+      
+      <!-- ID Card Clip Punch Hole -->
+      <rect x="110" y="10" width="60" height="8" rx="4" fill="#0d0e16" stroke="#475569" stroke-width="1" />
+
+      <!-- Card Top Brand Bar -->
+      <g transform="translate(20, 32)">
+        <text x="0" y="0" class="id-mono" font-size="10" font-weight="800" fill="#22d3ee" letter-spacing="2">AUTHENTICATED DEV</text>
+        <text x="240" y="0" class="id-mono" font-size="9" fill="#94a3b8" text-anchor="end">2026 // REV-01</text>
+      </g>
+
+      <!-- Avatar Photo Frame with Traveling Light -->
+      <g transform="translate(0, 0)">
+        <!-- Rotating Light Ring Background -->
+        <g class="id-travel-light">
+          <circle cx="140" cy="105" r="46" fill="none" stroke="#22d3ee" stroke-width="3" stroke-dasharray="14 10" />
+        </g>
+        
+        <!-- Avatar Circle Frame -->
+        <circle cx="140" cy="105" r="42" fill="#151824" stroke="#a78bfa" stroke-width="2" />
+        
+        <!-- Tech Developer Avatar Placeholder Graphic -->
+        <g transform="translate(140, 105)">
+          <!-- Hair & Silhouette -->
+          <circle cx="0" cy="-6" r="18" fill="#e2e8f0" />
+          <path d="M -16 -12 C -16 -24 16 -24 16 -12 C 16 -4 14 4 -16 -12 Z" fill="#0f172a" />
+          <!-- Sunglasses / Glasses -->
+          <rect x="-11" y="-8" width="10" height="6" rx="2" fill="#22d3ee" />
+          <rect x="1" y="-8" width="10" height="6" rx="2" fill="#22d3ee" />
+          <line x1="-1" y1="-5" x2="1" y2="-5" stroke="#22d3ee" stroke-width="1.5" />
+          <!-- Smiling mouth -->
+          <path d="M -5 1 Q 0 5 5 1" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" />
+          <!-- Body & Hoodie -->
+          <path d="M -26 36 C -26 18 -16 12 0 12 C 16 12 26 18 26 36 Z" fill="#a78bfa" />
+          <path d="M -8 18 L 0 28 L 8 18" fill="none" stroke="#fbbf24" stroke-width="2" />
+        </g>
+
+        <!-- Online Badge on Avatar -->
+        <circle cx="170" cy="135" r="7" fill="#0d0e16" />
+        <circle cx="170" cy="135" r="5" fill="#34d399" />
+      </g>
+
+      <!-- Name & Role -->
+      <g transform="translate(140, 180)" text-anchor="middle">
+        <text x="0" y="0" class="id-sans" font-size="18" font-weight="800" fill="#f8fafc">
+          Revanth Yarramsetti
+        </text>
+        <text x="0" y="20" class="id-mono" font-size="11" font-weight="600" fill="#22d3ee">
+          Agentic AI &amp; Full-Stack
+        </text>
+        <text x="0" y="38" class="id-mono" font-size="10.5" fill="#a78bfa">
+          github.com/Revanth2716
+        </text>
+      </g>
+
+      <!-- Security Gold Smart Chip -->
+      <g transform="translate(24, 235)">
+        <rect x="0" y="0" width="38" height="30" rx="6" fill="url(#id_gold_chip)" stroke="#a16207" stroke-width="1" />
+        <!-- Chip Circuit Lines -->
+        <path d="M 0 10 L 14 10 M 0 20 L 14 20 M 38 10 L 24 10 M 38 20 L 24 20 M 14 0 L 14 30 M 24 0 L 24 30" stroke="#854d0e" stroke-width="1" />
+        <rect x="14" y="8" width="10" height="14" rx="2" fill="#ca8a04" />
+      </g>
+
+      <!-- NFC / Contactless Icon -->
+      <g transform="translate(70, 246)">
+        <path d="M 0 0 C 4 3 4 11 0 14" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round" />
+        <path d="M 6 -4 C 12 0 12 18 6 22" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round" />
+        <path d="M 12 -8 C 20 -3 20 25 12 30" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round" />
+      </g>
+
+      <!-- Security Hash & Clearance -->
+      <g transform="translate(140, 252)">
+        <text x="0" y="0" class="id-mono" font-size="9" fill="#64748b">CLEARANCE: LEVEL-4</text>
+        <text x="0" y="14" class="id-mono" font-size="8.5" fill="#38bdf8">SHA-256: 7f3b89...2716</text>
+      </g>
+
+      <!-- Real Barcode -->
+      <g transform="translate(24, 300)">
+        <rect x="0" y="0" width="232" height="42" fill="#ffffff" rx="4" />
+        <!-- Barcode Lines -->
+        <g fill="#000000" transform="translate(10, 6)">
+          <rect x="0" y="0" width="3" height="24" /><rect x="5" y="0" width="1" height="24" /><rect x="8" y="0" width="4" height="24" />
+          <rect x="15" y="0" width="2" height="24" /><rect x="20" y="0" width="5" height="24" /><rect x="28" y="0" width="1" height="24" />
+          <rect x="32" y="0" width="3" height="24" /><rect x="38" y="0" width="2" height="24" /><rect x="44" y="0" width="4" height="24" />
+          <rect x="52" y="0" width="2" height="24" /><rect x="58" y="0" width="1" height="24" /><rect x="62" y="0" width="5" height="24" />
+          <rect x="71" y="0" width="2" height="24" /><rect x="76" y="0" width="3" height="24" /><rect x="82" y="0" width="1" height="24" />
+          <rect x="86" y="0" width="4" height="24" /><rect x="94" y="0" width="2" height="24" /><rect x="100" y="0" width="5" height="24" />
+          <rect x="110" y="0" width="2" height="24" /><rect x="115" y="0" width="3" height="24" /><rect x="122" y="0" width="1" height="24" />
+          <rect x="128" y="0" width="4" height="24" /><rect x="136" y="0" width="2" height="24" /><rect x="142" y="0" width="5" height="24" />
+          <rect x="152" y="0" width="3" height="24" /><rect x="158" y="0" width="1" height="24" /><rect x="164" y="0" width="4" height="24" />
+          <rect x="172" y="0" width="2" height="24" /><rect x="178" y="0" width="5" height="24" /><rect x="188" y="0" width="2" height="24" />
+          <rect x="194" y="0" width="3" height="24" /><rect x="200" y="0" width="4" height="24" /><rect x="208" y="0" width="2" height="24" />
+        </g>
+        <text x="116" y="38" class="id-mono" font-size="8" fill="#000000" text-anchor="middle" font-weight="700">
+          * 2 7 1 6 - R E V A N T H - 2 0 2 6 *
+        </text>
+      </g>
+
+      <!-- ID Card Bottom Verification -->
+      <g transform="translate(24, 368)">
+        <rect x="0" y="0" width="232" height="28" rx="6" fill="#121522" stroke="#22d3ee" stroke-opacity="0.3" stroke-width="1" />
+        <circle cx="14" cy="14" r="4" fill="#22d3ee" />
+        <text x="26" y="18" class="id-mono" font-size="9.5" fill="#f8fafc">SYSTEM PRIVILEGES: GRANTED</text>
+      </g>
+
+      <!-- Holographic Sweep Overlay (Clipped to ID card) -->
+      <g clip-path="url(#id_card_clip)">
+        <rect class="id-holo-layer" x="-100" y="-100" width="500" height="500" fill="url(#id_holo_sweep)" pointer-events="none" />
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================== RIGHT: DASHBOARD & REPO METRICS ==================== -->
+  <g transform="translate(450, 40)">
+    <!-- Dashboard Header -->
+    <g>
+      <rect x="0" y="0" width="168" height="24" rx="12" fill="#0e2338" stroke="#22d3ee" stroke-width="1" />
+      <text x="84" y="16" class="id-mono" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle">REAL-TIME DASHBOARD</text>
+      <text x="0" y="56" class="id-sans" font-size="28" font-weight="800" fill="#f8fafc">Engineering Telemetry &amp; Impact</text>
+      <text x="0" y="80" class="id-sans" font-size="13.5" fill="#94a3b8">Verified metrics pulled directly from GitHub profile &amp; active repositories</text>
+    </g>
+
+    <!-- Four Top KPI Tiles (Clearly distinguishing GitHub stats from Project Benchmarks) -->
+    <g transform="translate(0, 105)">
+      <!-- KPI Tile 1: Repositories (Official GitHub Data) -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="165" height="74" rx="12" fill="#151824" stroke="#22d3ee" stroke-opacity="0.3" stroke-width="1" />
+        <text x="16" y="24" class="id-mono" font-size="10.5" fill="#94a3b8">PUBLIC REPOS [GH]</text>
+        <text x="16" y="56" class="id-sans" font-size="28" font-weight="800" fill="#22d3ee">29</text>
+        <text x="64" y="54" class="id-mono" font-size="10.5" fill="#34d399">▲ Verified</text>
+      </g>
+
+      <!-- KPI Tile 2: Commits / Contributions (Official GitHub Data) -->
+      <g transform="translate(178, 0)">
+        <rect x="0" y="0" width="165" height="74" rx="12" fill="#151824" stroke="#a78bfa" stroke-opacity="0.3" stroke-width="1" />
+        <text x="16" y="24" class="id-mono" font-size="10.5" fill="#94a3b8">ACTIVITY [GH]</text>
+        <text x="16" y="56" class="id-sans" font-size="28" font-weight="800" fill="#a78bfa">48+</text>
+        <text x="76" y="54" class="id-mono" font-size="10.5" fill="#c084fc">▲ Commits</text>
+      </g>
+
+      <!-- KPI Tile 3: Deterministic Evals (Project Test Benchmark) -->
+      <g transform="translate(356, 0)">
+        <rect x="0" y="0" width="165" height="74" rx="12" fill="#151824" stroke="#f472b6" stroke-opacity="0.3" stroke-width="1" />
+        <text x="16" y="24" class="id-mono" font-size="10.5" fill="#94a3b8">PYTEST SUITE [REPO]</text>
+        <text x="16" y="56" class="id-sans" font-size="28" font-weight="800" fill="#f472b6">57/57</text>
+        <text x="96" y="54" class="id-mono" font-size="10.5" fill="#fb7185">ForgePilot</text>
+      </g>
+
+      <!-- KPI Tile 4: Multi-Agent Workflows (Architecture Design) -->
+      <g transform="translate(534, 0)">
+        <rect x="0" y="0" width="165" height="74" rx="12" fill="#151824" stroke="#34d399" stroke-opacity="0.3" stroke-width="1" />
+        <text x="16" y="24" class="id-mono" font-size="10.5" fill="#94a3b8">AGENT ARCH [DESIGN]</text>
+        <text x="16" y="56" class="id-sans" font-size="28" font-weight="800" fill="#34d399">4-Tier</text>
+        <text x="96" y="54" class="id-mono" font-size="10.5" fill="#6ee7b7">MCP stdio</text>
+      </g>
+    </g>
+
+    <!-- Single-Hue Repository Velocity & Impact Bar Chart -->
+    <g transform="translate(0, 205)">
+      <rect x="0" y="0" width="700" height="175" rx="14" fill="#151824" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+      <text x="20" y="26" class="id-mono" font-size="11" font-weight="700" fill="#38bdf8" letter-spacing="1">
+        FLAGSHIP REPOSITORIES (2025 – 2026 ARCHITECTURE)
+      </text>
+
+      <!-- Bar 1: forgepilot -->
+      <g transform="translate(20, 44)">
+        <text x="0" y="14" class="id-mono" font-size="11" fill="#f8fafc">forgepilot</text>
+        <rect x="140" y="2" width="440" height="15" rx="4" fill="#1e293b" />
+        <rect class="id-bar-1" x="140" y="2" width="440" height="15" rx="4" fill="#22d3ee" />
+        <text x="590" y="14" class="id-mono" font-size="11" fill="#22d3ee" font-weight="700">Agentic Engine</text>
+      </g>
+
+      <!-- Bar 2: evalforge -->
+      <g transform="translate(20, 68)">
+        <text x="0" y="14" class="id-mono" font-size="11" fill="#f8fafc">evalforge</text>
+        <rect x="140" y="2" width="440" height="15" rx="4" fill="#1e293b" />
+        <rect class="id-bar-2" x="140" y="2" width="390" height="15" rx="4" fill="#38bdf8" />
+        <text x="540" y="14" class="id-mono" font-size="11" fill="#38bdf8" font-weight="700">Safety Guardrails</text>
+      </g>
+
+      <!-- Bar 3: cloudops-sentinel -->
+      <g transform="translate(20, 92)">
+        <text x="0" y="14" class="id-mono" font-size="11" fill="#f8fafc">cloudops-sentinel</text>
+        <rect x="140" y="2" width="440" height="15" rx="4" fill="#1e293b" />
+        <rect class="id-bar-3" x="140" y="2" width="340" height="15" rx="4" fill="#0284c7" />
+        <text x="490" y="14" class="id-mono" font-size="11" fill="#0284c7" font-weight="700">Incident Ops</text>
+      </g>
+
+      <!-- Bar 4: ai-inference-gateway -->
+      <g transform="translate(20, 116)">
+        <text x="0" y="14" class="id-mono" font-size="11" fill="#f8fafc">ai-inference-gw</text>
+        <rect x="140" y="2" width="440" height="15" rx="4" fill="#1e293b" />
+        <rect class="id-bar-4" x="140" y="2" width="300" height="15" rx="4" fill="#0369a1" />
+        <text x="450" y="14" class="id-mono" font-size="11" fill="#7dd3fc" font-weight="700">LLM Router</text>
+      </g>
+
+      <!-- Bar 5: ai-data-quality -->
+      <g transform="translate(20, 140)">
+        <text x="0" y="14" class="id-mono" font-size="11" fill="#f8fafc">ai-data-quality</text>
+        <rect x="140" y="2" width="440" height="15" rx="4" fill="#1e293b" />
+        <rect class="id-bar-5" x="140" y="2" width="260" height="15" rx="4" fill="#075985" />
+        <text x="410" y="14" class="id-mono" font-size="11" fill="#bae6fd" font-weight="700">FastAPI Profiler</text>
+      </g>
+    </g>
+
+    <!-- "NOW" Panel: Real-time focus -->
+    <g transform="translate(0, 400)">
+      <rect x="0" y="0" width="700" height="88" rx="14" fill="#121522" stroke="#34d399" stroke-opacity="0.3" stroke-width="1.2" />
+      <!-- Pulsing Green Dot -->
+      <circle class="id-status-dot" cx="26" cy="28" r="5" fill="#34d399" />
+      <circle cx="26" cy="28" r="5" fill="#34d399" />
+      <text x="42" y="32" class="id-mono" font-size="11" font-weight="800" fill="#34d399" letter-spacing="1">NOW FOCUSING ON</text>
+      <text x="42" y="54" class="id-sans" font-size="14.5" font-weight="700" fill="#f8fafc">
+        Architecting offline-first Model Context Protocol (MCP) servers &amp; AST auto-repair loops.
+      </text>
+      <text x="42" y="72" class="id-mono" font-size="11.5" fill="#94a3b8">
+        Active sprint: ForgePilot human-approval gates + deterministic lexical regression tests.
+      </text>
+    </g>
+  </g>
+</svg>

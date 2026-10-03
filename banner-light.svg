@@ -1,0 +1,471 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients (Light Mode) -->
+    <radialGradient id="bl_bg_glow1" cx="15%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.18" />
+      <stop offset="60%" stop-color="#f8fafc" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="bl_bg_glow2" cx="85%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0.22" />
+      <stop offset="50%" stop-color="#f472b6" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#f8fafc" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="bl_bg_glow3" cx="50%" cy="85%" r="50%">
+      <stop offset="0%" stop-color="#67e8f9" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#f8fafc" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Aurora Text Gradient (Vibrant for Light Canvas) -->
+    <linearGradient id="bl_aurora_text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7">
+        <animate attributeName="stop-color" values="#0284c7;#7c3aed;#db2777;#0284c7" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#7c3aed">
+        <animate attributeName="stop-color" values="#7c3aed;#db2777;#0284c7;#7c3aed" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#db2777">
+        <animate attributeName="stop-color" values="#db2777;#0284c7;#7c3aed;#db2777" dur="8s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Light Mode Glass Border Gradient -->
+    <linearGradient id="bl_border_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.45" />
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.4" />
+    </linearGradient>
+
+    <!-- Card Background (Frosted White) -->
+    <linearGradient id="bl_card_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#f1f5f9" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Scanner Gradient (Light Mode) -->
+    <linearGradient id="bl_scanner_grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0" />
+      <stop offset="50%" stop-color="#0284c7" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Dot Pattern -->
+    <pattern id="bl_dot_pattern" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#6366f1" fill-opacity="0.08" />
+    </pattern>
+
+    <!-- Clip Path for Scanner -->
+    <clipPath id="bl_banner_clip">
+      <rect x="0" y="0" width="1200" height="680" rx="28" ry="28" />
+    </clipPath>
+  </defs>
+
+  <style>
+    .bl-font-mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace; }
+    .bl-font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    
+    @keyframes bl_blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .bl-cursor {
+      animation: bl_blink 0.9s infinite;
+    }
+
+    @keyframes bl_sweep {
+      0% { transform: translateY(-40px); opacity: 0; }
+      10% { opacity: 1; }
+      85% { opacity: 1; }
+      100% { transform: translateY(700px); opacity: 0; }
+    }
+    .bl-scanner-line {
+      animation: bl_sweep 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes bl_role1 {
+      0%, 22% { opacity: 1; transform: translateY(0); }
+      25%, 97% { opacity: 0; transform: translateY(12px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bl_role2 {
+      0%, 23% { opacity: 0; transform: translateY(12px); }
+      26%, 48% { opacity: 1; transform: translateY(0); }
+      51%, 100% { opacity: 0; transform: translateY(12px); }
+    }
+    @keyframes bl_role3 {
+      0%, 49% { opacity: 0; transform: translateY(12px); }
+      52%, 73% { opacity: 1; transform: translateY(0); }
+      76%, 100% { opacity: 0; transform: translateY(12px); }
+    }
+    @keyframes bl_role4 {
+      0%, 74% { opacity: 0; transform: translateY(12px); }
+      77%, 96% { opacity: 1; transform: translateY(0); }
+      99%, 100% { opacity: 0; transform: translateY(12px); }
+    }
+
+    .bl-role-1 { animation: bl_role1 14s infinite; }
+    .bl-role-2 { animation: bl_role2 14s infinite; }
+    .bl-role-3 { animation: bl_role3 14s infinite; }
+    .bl-role-4 { animation: bl_role4 14s infinite; }
+
+    @keyframes bl_float1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-8px, -14px) scale(1.1); }
+    }
+    @keyframes bl_float2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(10px, -18px) scale(0.9); }
+    }
+    .bl-p1 { animation: bl_float1 4s ease-in-out infinite; }
+    .bl-p2 { animation: bl_float2 5.5s ease-in-out infinite; }
+
+    @keyframes bl_neon {
+      0%, 19.99%, 22%, 62.99%, 64%, 64.99%, 70%, 100% {
+        opacity: 0.95;
+        filter: drop-shadow(0 0 6px #f43f5e);
+      }
+      20%, 21.99%, 63%, 63.99%, 65%, 69.99% {
+        opacity: 0.35;
+        filter: none;
+      }
+    }
+    .bl-neon {
+      animation: bl_neon 7s infinite;
+    }
+
+    @keyframes bl_pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.6; }
+    }
+    .bl-pulse-dot {
+      transform-origin: 78px 145px;
+      animation: bl_pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes bl_rec {
+      0%, 100% { fill: #dc2626; opacity: 1; }
+      50% { fill: #dc2626; opacity: 0.2; }
+    }
+    .bl-rec-dot {
+      animation: bl_rec 1.2s infinite;
+    }
+
+    @keyframes bl_code_glow {
+      0%, 100% { stroke: #7c3aed; stroke-opacity: 0.25; }
+      50% { stroke: #0284c7; stroke-opacity: 0.5; }
+    }
+    .bl-code-frame {
+      animation: bl_code_glow 6s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Root Canvas Container with Rounded Edges -->
+  <g clip-path="url(#bl_banner_clip)">
+    <!-- Base Canvas Background (Light Mode) -->
+    <rect x="0" y="0" width="1200" height="680" fill="#f8fafc" />
+    <rect x="0" y="0" width="1200" height="680" fill="url(#bl_bg_glow1)" />
+    <rect x="0" y="0" width="1200" height="680" fill="url(#bl_bg_glow2)" />
+    <rect x="0" y="0" width="1200" height="680" fill="url(#bl_bg_glow3)" />
+    <!-- Subtle Dot Texture -->
+    <rect x="0" y="0" width="1200" height="680" fill="url(#bl_dot_pattern)" />
+
+    <!-- Viewfinder UI Elements (Corners) -->
+    <g stroke="#6366f1" stroke-width="2" stroke-linecap="round" opacity="0.45" fill="none">
+      <path d="M 28 44 L 28 28 L 44 28" />
+      <path d="M 1172 44 L 1172 28 L 1156 28" />
+      <path d="M 28 636 L 28 652 L 44 652" />
+      <path d="M 1172 636 L 1172 652 L 1156 652" />
+    </g>
+
+    <!-- Camera Viewfinder HUD -->
+    <g class="bl-font-mono" font-size="12" fill="#475569" letter-spacing="1">
+      <circle class="bl-rec-dot" cx="64" cy="40" r="5" />
+      <text x="76" y="44" fill="#dc2626" font-weight="700">REC [RAW: 4K 60FPS]</text>
+      
+      <path d="M 600 24 L 600 32 M 600 648 L 600 656 M 24 340 L 32 340 M 1168 340 L 1176 340" stroke="#6366f1" stroke-width="1.5" opacity="0.3" />
+      
+      <text x="730" y="44" fill="#64748b">ISO 200</text>
+      <text x="820" y="44" fill="#64748b">F/2.0</text>
+      <text x="890" y="44" fill="#64748b">1/250s</text>
+      <text x="970" y="44" fill="#0284c7" font-weight="600">PROFILE_LIGHT_v2026.0</text>
+    </g>
+
+    <!-- Top Terminal Command Bar -->
+    <g transform="translate(60, 72)">
+      <rect x="0" y="0" width="1080" height="42" rx="10" fill="#ffffff" fill-opacity="0.9" stroke="#cbd5e1" stroke-width="1" />
+      <circle cx="22" cy="21" r="5.5" fill="#f87171" />
+      <circle cx="38" cy="21" r="5.5" fill="#fbbf24" />
+      <circle cx="54" cy="21" r="5.5" fill="#34d399" />
+      
+      <text x="78" y="26" class="bl-font-mono" font-size="14" fill="#475569">
+        <tspan fill="#059669" font-weight="700">user@dev</tspan><tspan fill="#64748b">:</tspan><tspan fill="#0284c7">~</tspan><tspan fill="#0f172a">$ cat README.md</tspan>
+      </text>
+      <rect class="bl-cursor" x="292" y="14" width="8" height="15" fill="#0284c7" />
+      <rect x="965" y="10" width="98" height="22" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1" />
+      <text x="978" y="25" class="bl-font-mono" font-size="11" fill="#0284c7" font-weight="600">main:clean</text>
+    </g>
+
+    <!-- LEFT COLUMN -->
+    <g transform="translate(60, 140)">
+      <!-- "Open to Collabs" Pill -->
+      <g>
+        <rect x="0" y="0" width="186" height="30" rx="15" fill="#ccfbf1" stroke="#0d9488" stroke-opacity="0.6" stroke-width="1.2" />
+        <circle class="bl-pulse-dot" cx="18" cy="15" r="4.5" fill="#0d9488" />
+        <circle cx="18" cy="15" r="4.5" fill="#0d9488" />
+        <text x="32" y="20" class="bl-font-mono" font-size="11.5" font-weight="700" fill="#0f766e" letter-spacing="0.5">OPEN TO COLLABS</text>
+      </g>
+
+      <!-- Subtitle -->
+      <text x="0" y="70" class="bl-font-mono" font-size="18" fill="#475569" letter-spacing="1">
+        Hi there, I'm
+      </text>
+
+      <!-- Big Name -->
+      <text x="0" y="125" class="bl-font-sans" font-size="52" font-weight="900" fill="url(#bl_aurora_text)" letter-spacing="-1">
+        Revanth Yarramsetti
+      </text>
+
+      <!-- Cycling Role Bar -->
+      <g transform="translate(0, 168)">
+        <rect x="0" y="0" width="480" height="38" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+        <text x="14" y="24" class="bl-font-mono" font-size="15" font-weight="700" fill="#0284c7">❯</text>
+        
+        <g class="bl-role-1">
+          <text x="32" y="24" class="bl-font-mono" font-size="14.5" font-weight="700" fill="#0f172a">
+            Agentic AI Systems Architect
+          </text>
+        </g>
+        <g class="bl-role-2">
+          <text x="32" y="24" class="bl-font-mono" font-size="14.5" font-weight="700" fill="#0f172a">
+            Full-Stack Software Engineer
+          </text>
+        </g>
+        <g class="bl-role-3">
+          <text x="32" y="24" class="bl-font-mono" font-size="14.5" font-weight="700" fill="#0f172a">
+            LLM Guardrails &amp; Eval Engineer
+          </text>
+        </g>
+        <g class="bl-role-4">
+          <text x="32" y="24" class="bl-font-mono" font-size="14.5" font-weight="700" fill="#0f172a">
+            Python, TypeScript &amp; FastAPI Dev
+          </text>
+        </g>
+      </g>
+
+      <!-- Elevator Pitch -->
+      <g transform="translate(0, 230)">
+        <text x="0" y="0" class="bl-font-sans" font-size="15.5" fill="#334155" font-weight="500">
+          Building local-first agentic software, deterministic guardrail engines,
+        </text>
+        <text x="0" y="24" class="bl-font-sans" font-size="15.5" fill="#334155" font-weight="500">
+          and high-throughput inference gateways that run with zero fragility.
+        </text>
+      </g>
+
+      <!-- Tagline Box -->
+      <g transform="translate(0, 280)">
+        <rect x="0" y="0" width="480" height="42" rx="10" fill="#f5f3ff" stroke="#a78bfa" stroke-opacity="0.5" stroke-width="1" />
+        <text x="16" y="26" class="bl-font-mono" font-size="12" fill="#6d28d9" font-weight="600">
+          “Code with purpose. Evaluate with honesty. Ship with pride.”
+        </text>
+      </g>
+
+      <!-- Tech Stack Pills -->
+      <g transform="translate(0, 342)">
+        <g transform="translate(0, 0)">
+          <rect x="0" y="0" width="76" height="26" rx="13" fill="#ffffff" stroke="#0284c7" stroke-opacity="0.4" stroke-width="1" />
+          <text x="38" y="17" class="bl-font-mono" font-size="11" fill="#0369a1" text-anchor="middle" font-weight="600">Python</text>
+        </g>
+        <g transform="translate(84, 0)">
+          <rect x="0" y="0" width="96" height="26" rx="13" fill="#ffffff" stroke="#2563eb" stroke-opacity="0.4" stroke-width="1" />
+          <text x="48" y="17" class="bl-font-mono" font-size="11" fill="#1d4ed8" text-anchor="middle" font-weight="600">TypeScript</text>
+        </g>
+        <g transform="translate(188, 0)">
+          <rect x="0" y="0" width="80" height="26" rx="13" fill="#ffffff" stroke="#059669" stroke-opacity="0.4" stroke-width="1" />
+          <text x="40" y="17" class="bl-font-mono" font-size="11" fill="#047857" text-anchor="middle" font-weight="600">FastAPI</text>
+        </g>
+        <g transform="translate(276, 0)">
+          <rect x="0" y="0" width="68" height="26" rx="13" fill="#ffffff" stroke="#0891b2" stroke-opacity="0.4" stroke-width="1" />
+          <text x="34" y="17" class="bl-font-mono" font-size="11" fill="#0e7490" text-anchor="middle" font-weight="600">React</text>
+        </g>
+        <g transform="translate(352, 0)">
+          <rect x="0" y="0" width="102" height="26" rx="13" fill="#ffffff" stroke="#db2777" stroke-opacity="0.4" stroke-width="1" />
+          <text x="51" y="17" class="bl-font-mono" font-size="11" fill="#be185d" text-anchor="middle" font-weight="600">MCP Protocol</text>
+        </g>
+
+        <!-- Row 2 Pills -->
+        <g transform="translate(0, 34)">
+          <g transform="translate(0, 0)">
+            <rect x="0" y="0" width="94" height="26" rx="13" fill="#ffffff" stroke="#7c3aed" stroke-opacity="0.4" stroke-width="1" />
+            <text x="47" y="17" class="bl-font-mono" font-size="11" fill="#6d28d9" text-anchor="middle" font-weight="600">Evals &amp; CI</text>
+          </g>
+          <g transform="translate(102, 0)">
+            <rect x="0" y="0" width="108" height="26" rx="13" fill="#ffffff" stroke="#0284c7" stroke-opacity="0.4" stroke-width="1" />
+            <text x="54" y="17" class="bl-font-mono" font-size="11" fill="#0369a1" text-anchor="middle" font-weight="600">pgvector/SQL</text>
+          </g>
+          <g transform="translate(218, 0)">
+            <rect x="0" y="0" width="76" height="26" rx="13" fill="#ffffff" stroke="#0284c7" stroke-opacity="0.4" stroke-width="1" />
+            <text x="38" y="17" class="bl-font-mono" font-size="11" fill="#0284c7" text-anchor="middle" font-weight="600">Docker</text>
+          </g>
+          <g transform="translate(302, 0)">
+            <rect x="0" y="0" width="124" height="26" rx="13" fill="#ffffff" stroke="#475569" stroke-opacity="0.3" stroke-width="1" />
+            <text x="62" y="17" class="bl-font-mono" font-size="11" fill="#334155" text-anchor="middle" font-weight="600">GitHub Actions</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- Meta Row -->
+      <g transform="translate(0, 442)">
+        <rect x="0" y="0" width="480" height="34" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+        <path d="M 18 16 C 18 13 21 10 24 10 C 27 10 30 13 30 16 C 30 20 24 25 24 25 C 24 25 18 20 18 16 Z" fill="none" stroke="#db2777" stroke-width="1.5" />
+        <circle cx="24" cy="15" r="1.5" fill="#db2777" />
+        <text x="36" y="21" class="bl-font-sans" font-size="12" fill="#334155" font-weight="600">Hyderabad, India</text>
+        
+        <circle cx="160" cy="15" r="3.5" fill="none" stroke="#0284c7" stroke-width="1.5" />
+        <path d="M 154 24 C 154 21 157 20 160 20 C 163 20 166 21 166 24" fill="none" stroke="#0284c7" stroke-width="1.5" />
+        <text x="173" y="21" class="bl-font-sans" font-size="12" fill="#334155" font-weight="600">@Revanth2716</text>
+
+        <path d="M 276 13 L 286 13 L 286 23 L 276 23 Z" fill="none" stroke="#7c3aed" stroke-width="1.5" />
+        <path d="M 279 16 L 283 16 M 279 19 L 283 19" stroke="#7c3aed" stroke-width="1.2" />
+        <text x="292" y="21" class="bl-font-sans" font-size="12" fill="#334155"><tspan font-weight="700" fill="#7c3aed">29</tspan> Public Repos</text>
+
+        <circle cx="398" cy="17" r="3.5" fill="#059669" />
+        <text x="408" y="21" class="bl-font-sans" font-size="12" fill="#059669" font-weight="700">48+ Commits/Yr</text>
+      </g>
+    </g>
+
+    <!-- RIGHT COLUMN: Light Code Card -->
+    <g transform="translate(580, 140)">
+      <rect class="bl-code-frame" x="0" y="0" width="560" height="420" rx="16" fill="url(#bl_card_bg)" stroke="url(#bl_border_grad)" stroke-width="1.5" />
+      
+      <!-- Code Window Header Bar -->
+      <path d="M 0 16 C 0 7.16 7.16 0 16 0 L 544 0 C 552.84 0 560 7.16 560 16 L 560 40 L 0 40 Z" fill="#e2e8f0" />
+      <circle cx="20" cy="20" r="5" fill="#f87171" />
+      <circle cx="36" cy="20" r="5" fill="#fbbf24" />
+      <circle cx="52" cy="20" r="5" fill="#34d399" />
+      
+      <rect x="76" y="8" width="180" height="26" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+      <text x="92" y="25" class="bl-font-mono" font-size="11.5" fill="#0369a1" font-weight="600">⚡ forgepilot_agent.py</text>
+      <text x="450" y="25" class="bl-font-mono" font-size="11" fill="#64748b">UTF-8 • Python 3.12</text>
+
+      <!-- Code Content -->
+      <g transform="translate(20, 60)" class="bl-font-mono" font-size="12.5" line-height="22">
+        <g fill="#94a3b8" text-anchor="end">
+          <text x="15" y="20">01</text>
+          <text x="15" y="44">02</text>
+          <text x="15" y="68">03</text>
+          <text x="15" y="92">04</text>
+          <text x="15" y="116">05</text>
+          <text x="15" y="140">06</text>
+          <text x="15" y="164">07</text>
+          <text x="15" y="188">08</text>
+          <text x="15" y="212">09</text>
+          <text x="15" y="236">10</text>
+          <text x="15" y="260">11</text>
+          <text x="15" y="284">12</text>
+          <text x="15" y="308">13</text>
+          <text x="15" y="332">14</text>
+        </g>
+
+        <line x1="28" y1="5" x2="28" y2="340" stroke="#cbd5e1" stroke-width="1" />
+
+        <g transform="translate(42, 0)">
+          <text x="0" y="20">
+            <tspan fill="#db2777" font-weight="700">from</tspan> <tspan fill="#0f172a">forgepilot.orchestrator</tspan> <tspan fill="#db2777" font-weight="700">import</tspan> <tspan fill="#0284c7" font-weight="700">AutonomousEngineer</tspan>
+          </text>
+          <text x="0" y="44">
+            <tspan fill="#db2777" font-weight="700">from</tspan> <tspan fill="#0f172a">evalforge.engine</tspan> <tspan fill="#db2777" font-weight="700">import</tspan> <tspan fill="#0284c7" font-weight="700">DeterministicGuardrail</tspan>
+          </text>
+          <text x="0" y="68" fill="#64748b">
+            # Initializing human-governed agentic pipeline
+          </text>
+          <text x="0" y="92">
+            <tspan fill="#db2777" font-weight="700">async def</tspan> <tspan fill="#059669" font-weight="700">buildDreams</tspan>(<tspan fill="#d97706">developer</tspan>: <tspan fill="#0284c7">str</tspan> = <tspan fill="#b45309">"Revanth"</tspan>):
+          </text>
+          <text x="18" y="116">
+            <tspan fill="#0f172a">agent</tspan> = <tspan fill="#0284c7" font-weight="700">AutonomousEngineer</tspan>(
+          </text>
+          <text x="36" y="140">
+            <tspan fill="#475569">tools</tspan>=[<tspan fill="#7c3aed">"mcp.inspect"</tspan>, <tspan fill="#7c3aed">"ast.transform"</tspan>, <tspan fill="#7c3aed">"pytest.run"</tspan>],
+          </text>
+          <text x="36" y="164">
+            <tspan fill="#475569">evaluation_gate</tspan>=<tspan fill="#0284c7">DeterministicGuardrail</tspan>(<tspan fill="#d97706">strict</tspan>=<tspan fill="#db2777">True</tspan>),
+          </text>
+          <text x="36" y="188">
+            <tspan fill="#475569">human_in_the_loop</tspan>=<tspan fill="#059669" font-weight="700">True</tspan>  <tspan fill="#64748b"># No unauthorized git writes</tspan>
+          </text>
+          <text x="18" y="212">
+            )
+          </text>
+          <text x="18" y="236">
+            <tspan fill="#db2777" font-weight="700">while</tspan> <tspan fill="#d97706">developer</tspan>.<tspan fill="#0284c7">is_building</tspan>():
+          </text>
+          <text x="36" y="260">
+            <tspan fill="#db2777" font-weight="700">await</tspan> <tspan fill="#0f172a">agent</tspan>.<tspan fill="#059669" font-weight="700">plan_and_verify</tspan>(<tspan fill="#d97706">goal</tspan>=<tspan fill="#b45309">"Ship World-Class Systems"</tspan>)
+          </text>
+          <text x="36" y="284">
+            <tspan fill="#db2777" font-weight="700">await</tspan> <tspan fill="#0f172a">agent</tspan>.<tspan fill="#059669" font-weight="700">run_regression_tests</tspan>(<tspan fill="#d97706">baseline</tspan>=<tspan fill="#059669">100%</tspan>)
+          </text>
+          <text x="36" y="308">
+            <tspan fill="#db2777" font-weight="700">return</tspan> <tspan fill="#0f172a">{</tspan><tspan fill="#b45309">"status"</tspan>: <tspan fill="#059669">"PASSED"</tspan>, <tspan fill="#b45309">"stars"</tspan>: <tspan fill="#db2777">"unlimited"</tspan><tspan fill="#0f172a">}</tspan>
+          </text>
+          <text x="18" y="332">
+            <tspan fill="#64748b"># Pipeline status: Verified 10/10 test checks pass</tspan>
+          </text>
+        </g>
+      </g>
+
+      <!-- Mini Live Execution Console -->
+      <g transform="translate(16, 368)">
+        <rect x="0" y="0" width="528" height="38" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+        <circle cx="16" cy="19" r="4" fill="#059669" />
+        <text x="28" y="23" class="bl-font-mono" font-size="11" fill="#059669" font-weight="700">● [PASS]</text>
+        <text x="82" y="23" class="bl-font-mono" font-size="11" fill="#334155">evalforge: 4 golden cases verified • 0 regression</text>
+        <text x="470" y="23" class="bl-font-mono" font-size="11" fill="#7c3aed" font-weight="700">0.0ms</text>
+      </g>
+    </g>
+
+    <!-- Neon Sign: Light Variant -->
+    <g transform="translate(580, 580)">
+      <rect x="0" y="0" width="560" height="42" rx="10" fill="#ffffff" stroke="#f43f5e" stroke-opacity="0.35" stroke-width="1.2" />
+      <g class="bl-neon">
+        <text x="280" y="27" class="bl-font-mono" font-size="13.5" font-weight="800" fill="#e11d48" text-anchor="middle" letter-spacing="4">
+          ★ KEEP CODING • KEEP GROWING ★
+        </text>
+      </g>
+    </g>
+
+    <!-- Scrubber Bar -->
+    <g transform="translate(60, 642)">
+      <rect x="0" y="0" width="480" height="4" rx="2" fill="#cbd5e1" />
+      <rect x="0" y="0" width="280" height="4" rx="2" fill="url(#bl_aurora_text)">
+        <animate attributeName="width" values="0;480;0" dur="8s" repeatCount="indefinite" />
+      </rect>
+    </g>
+
+    <!-- Sparkles and Elements -->
+    <g class="bl-p1" transform="translate(530, 100)">
+      <polygon points="10,0 12,7 19,10 12,13 10,20 8,13 1,10 8,7" fill="#db2777" opacity="0.8" />
+    </g>
+    <g class="bl-p2" transform="translate(1120, 95)">
+      <polygon points="8,0 10,6 16,8 10,10 8,16 6,10 0,8 6,6" fill="#0284c7" opacity="0.85" />
+    </g>
+    <g class="bl-p1" transform="translate(555, 540)">
+      <polygon points="7,0 9,5 14,7 9,9 7,14 5,9 0,7 5,5" fill="#7c3aed" opacity="0.75" />
+    </g>
+    <g class="bl-p2" transform="translate(510, 310) scale(0.9)">
+      <path d="M 10 5 C 10 2 7 0 5 0 C 2 0 0 2 0 5 C 0 8 5 12 10 16 C 15 12 20 8 20 5 C 20 2 18 0 15 0 C 13 0 10 2 10 5 Z" fill="#db2777" fill-opacity="0.4" />
+    </g>
+    <g class="bl-p1" transform="translate(1135, 480) scale(0.8)">
+      <path d="M 10 5 C 10 2 7 0 5 0 C 2 0 0 2 0 5 C 2 0 18 0 15 0 C 13 0 10 2 10 5 Z" fill="#7c3aed" fill-opacity="0.35" />
+    </g>
+
+    <!-- SCANNER LINE (LIGHT) -->
+    <g class="bl-scanner-line">
+      <rect x="0" y="0" width="1200" height="24" fill="url(#bl_scanner_grad)" />
+      <line x1="0" y1="12" x2="1200" y2="12" stroke="#0284c7" stroke-width="1.8" stroke-opacity="0.6" />
+    </g>
+
+    <!-- Outer Perimeter Hairline Gradient Border -->
+    <rect x="1" y="1" width="1198" height="678" rx="27" ry="27" fill="none" stroke="url(#bl_border_grad)" stroke-width="1.5" />
+  </g>
+</svg>

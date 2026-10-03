@@ -1,0 +1,32 @@
+name: GitHub 3D Contribution City
+
+on:
+  schedule:
+    # Run once daily at midnight UTC
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Generate 3D Contribution Graph
+    steps:
+      - uses: actions/checkout@v4
+      - uses: yoshi389111/github-profile-3d-contrib@0.7.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: Revanth2716
+      - name: Commit & Push generated 3D city
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A profile-3d-contrib/
+          git diff --staged --quiet || git commit -m "chore(3d-contrib): update 3D contribution night skyline [skip ci]"
+          git push

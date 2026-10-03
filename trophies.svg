@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 230" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="trp_glow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="trp_card_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#151824" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0.98" />
+    </linearGradient>
+
+    <linearGradient id="trp_border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#a78bfa" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0.6" />
+    </linearGradient>
+
+    <linearGradient id="trp_shine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <clipPath id="trp_clip">
+      <rect x="0" y="0" width="1020" height="230" rx="16" />
+    </clipPath>
+  </defs>
+
+  <style>
+    .trp-mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace; }
+    .trp-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+
+    /* Pop-in animation for trophy cells */
+    @keyframes trp_pop {
+      0% { transform: scale(0.85); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .trp-c1 { animation: trp_pop 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .trp-c2 { animation: trp_pop 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .trp-c3 { animation: trp_pop 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .trp-c4 { animation: trp_pop 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .trp-c5 { animation: trp_pop 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .trp-c6 { animation: trp_pop 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+    /* Shine sweep */
+    @keyframes trp_shine_sweep {
+      0% { transform: translateX(-600px) skewX(-20deg); }
+      30%, 100% { transform: translateX(1200px) skewX(-20deg); }
+    }
+    .trp-shine-bar {
+      animation: trp_shine_sweep 6s infinite ease-in-out;
+    }
+  </style>
+
+  <g clip-path="url(#trp_clip)">
+    <!-- Base Canvas -->
+    <rect x="0" y="0" width="1020" height="230" fill="url(#trp_card_bg)" />
+    <rect x="0" y="0" width="1020" height="230" fill="url(#trp_glow)" />
+
+    <!-- Card Header -->
+    <g transform="translate(24, 20)">
+      <circle cx="6" cy="6" r="4.5" fill="#f472b6" />
+      <text x="18" y="10" class="trp-sans" font-size="15" font-weight="700" fill="#f8fafc">
+        Engineering Highlights &amp; Project Milestones
+      </text>
+      <text x="970" y="10" class="trp-mono" font-size="10.5" fill="#64748b" text-anchor="end">
+        Custom Portfolio Showcase
+      </text>
+    </g>
+
+    <line x1="24" y1="42" x2="996" y2="42" stroke="#334155" stroke-opacity="0.4" stroke-width="1" />
+
+    <!-- Project Milestone Cells Grid (6 Cells) -->
+    <g transform="translate(24, 58)">
+      <!-- Cell 1: ForgePilot Agent -->
+      <g class="trp-c1" transform="translate(0, 0)">
+        <rect x="0" y="0" width="152" height="148" rx="12" fill="#121522" stroke="#22d3ee" stroke-opacity="0.35" stroke-width="1" />
+        <circle cx="76" cy="38" r="22" fill="#083344" />
+        <text x="76" y="45" font-size="20" text-anchor="middle">⚡</text>
+        <text x="76" y="78" class="trp-sans" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">ForgePilot</text>
+        <text x="76" y="94" class="trp-mono" font-size="9.5" fill="#94a3b8" text-anchor="middle">4-Tier MCP Pipeline</text>
+        <!-- Milestone Badge -->
+        <rect x="36" y="112" width="80" height="20" rx="10" fill="#164e63" stroke="#22d3ee" stroke-width="1" />
+        <text x="76" y="126" class="trp-mono" font-size="9.5" font-weight="800" fill="#22d3ee" text-anchor="middle">57/57 TESTS</text>
+      </g>
+
+      <!-- Cell 2: EvalForge Guardrails -->
+      <g class="trp-c2" transform="translate(164, 0)">
+        <rect x="0" y="0" width="152" height="148" rx="12" fill="#121522" stroke="#a78bfa" stroke-opacity="0.35" stroke-width="1" />
+        <circle cx="76" cy="38" r="22" fill="#2e1065" />
+        <text x="76" y="45" font-size="20" text-anchor="middle">🛡️</text>
+        <text x="76" y="78" class="trp-sans" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">EvalForge</text>
+        <text x="76" y="94" class="trp-mono" font-size="9.5" fill="#94a3b8" text-anchor="middle">Deterministic Evals</text>
+        <rect x="34" y="112" width="84" height="20" rx="10" fill="#3b0764" stroke="#a78bfa" stroke-width="1" />
+        <text x="76" y="126" class="trp-mono" font-size="9" font-weight="800" fill="#c084fc" text-anchor="middle">0 REGRESSION</text>
+      </g>
+
+      <!-- Cell 3: Inference Gateway -->
+      <g class="trp-c3" transform="translate(328, 0)">
+        <rect x="0" y="0" width="152" height="148" rx="12" fill="#121522" stroke="#38bdf8" stroke-opacity="0.35" stroke-width="1" />
+        <circle cx="76" cy="38" r="22" fill="#075985" />
+        <text x="76" y="45" font-size="20" text-anchor="middle">🌐</text>
+        <text x="76" y="78" class="trp-sans" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Inference GW</text>
+        <text x="76" y="94" class="trp-mono" font-size="9.5" fill="#94a3b8" text-anchor="middle">Unified LLM Router</text>
+        <rect x="32" y="112" width="88" height="20" rx="10" fill="#0369a1" stroke="#38bdf8" stroke-width="1" />
+        <text x="76" y="126" class="trp-mono" font-size="9" font-weight="800" fill="#7dd3fc" text-anchor="middle">OFFLINE MOCK</text>
+      </g>
+
+      <!-- Cell 4: SRE Incident Ops -->
+      <g class="trp-c4" transform="translate(492, 0)">
+        <rect x="0" y="0" width="152" height="148" rx="12" fill="#121522" stroke="#f472b6" stroke-opacity="0.35" stroke-width="1" />
+        <circle cx="76" cy="38" r="22" fill="#4c0519" />
+        <text x="76" y="45" font-size="20" text-anchor="middle">📟</text>
+        <text x="76" y="78" class="trp-sans" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">CloudOps SRE</text>
+        <text x="76" y="94" class="trp-mono" font-size="9.5" fill="#94a3b8" text-anchor="middle">Incident Sentinel</text>
+        <rect x="36" y="112" width="80" height="20" rx="10" fill="#831843" stroke="#f472b6" stroke-width="1" />
+        <text x="76" y="126" class="trp-mono" font-size="9.5" font-weight="800" fill="#fbcfe8" text-anchor="middle">DRY RUN</text>
+      </g>
+
+      <!-- Cell 5: Data Quality AI -->
+      <g class="trp-c5" transform="translate(656, 0)">
+        <rect x="0" y="0" width="152" height="148" rx="12" fill="#121522" stroke="#fbbf24" stroke-opacity="0.35" stroke-width="1" />
+        <circle cx="76" cy="38" r="22" fill="#451a03" />
+        <text x="76" y="45" font-size="20" text-anchor="middle">📊</text>
+        <text x="76" y="78" class="trp-sans" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Data Quality</text>
+        <text x="76" y="94" class="trp-mono" font-size="9.5" fill="#94a3b8" text-anchor="middle">FastAPI Profiler</text>
+        <rect x="38" y="112" width="76" height="20" rx="10" fill="#78350f" stroke="#fbbf24" stroke-width="1" />
+        <text x="76" y="126" class="trp-mono" font-size="9.5" font-weight="800" fill="#fde68a" text-anchor="middle">IQR + ML</text>
+      </g>
+
+      <!-- Cell 6: Open Source Shipped -->
+      <g class="trp-c6" transform="translate(820, 0)">
+        <rect x="0" y="0" width="152" height="148" rx="12" fill="#121522" stroke="#34d399" stroke-opacity="0.35" stroke-width="1" />
+        <circle cx="76" cy="38" r="22" fill="#064e3b" />
+        <text x="76" y="45" font-size="20" text-anchor="middle">📦</text>
+        <text x="76" y="78" class="trp-sans" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">OSS Shipped</text>
+        <text x="76" y="94" class="trp-mono" font-size="9.5" fill="#94a3b8" text-anchor="middle">29 Public Repos</text>
+        <rect x="36" y="112" width="80" height="20" rx="10" fill="#065f46" stroke="#34d399" stroke-width="1" />
+        <text x="76" y="126" class="trp-mono" font-size="9.5" font-weight="800" fill="#a7f3d0" text-anchor="middle">1.48 MB CODE</text>
+      </g>
+    </g>
+
+    <!-- Shine Sweep -->
+    <rect class="trp-shine-bar" x="0" y="0" width="100" height="230" fill="url(#trp_shine)" pointer-events="none" />
+    <rect x="1" y="1" width="1018" height="228" rx="15" fill="none" stroke="url(#trp_border)" stroke-width="1.2" />
+  </g>
+</svg>

@@ -1,0 +1,550 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="b_bg_glow1" cx="15%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.18" />
+      <stop offset="60%" stop-color="#0d0e16" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="b_bg_glow2" cx="85%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.22" />
+      <stop offset="50%" stop-color="#f472b6" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="b_bg_glow3" cx="50%" cy="85%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Aurora Text Gradient -->
+    <linearGradient id="b_aurora_text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee">
+        <animate attributeName="stop-color" values="#22d3ee;#a78bfa;#f472b6;#22d3ee" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#a78bfa">
+        <animate attributeName="stop-color" values="#a78bfa;#f472b6;#22d3ee;#a78bfa" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#f472b6">
+        <animate attributeName="stop-color" values="#f472b6;#22d3ee;#a78bfa;#f472b6" dur="8s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Glass Border Gradient -->
+    <linearGradient id="b_border_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#a78bfa" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0.5" />
+    </linearGradient>
+
+    <!-- Card Background -->
+    <linearGradient id="b_card_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#151824" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Scanner Gradient -->
+    <linearGradient id="b_scanner_grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0" />
+      <stop offset="50%" stop-color="#22d3ee" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Dot Pattern -->
+    <pattern id="b_dot_pattern" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#a78bfa" fill-opacity="0.08" />
+    </pattern>
+
+    <!-- Clip Path for Scanner -->
+    <clipPath id="b_banner_clip">
+      <rect x="0" y="0" width="1200" height="680" rx="28" ry="28" />
+    </clipPath>
+
+    <!-- Filter for Glow -->
+    <filter id="b_glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="b_neon_flicker" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    /* Typography and Core Styles */
+    .b-font-mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace; }
+    .b-font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    
+    /* Terminal Typing and Cursor */
+    @keyframes b_blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .b-cursor {
+      animation: b_blink 0.9s infinite;
+    }
+
+    /* Scanner Animation */
+    @keyframes b_sweep {
+      0% { transform: translateY(-40px); opacity: 0; }
+      10% { opacity: 1; }
+      85% { opacity: 1; }
+      100% { transform: translateY(700px); opacity: 0; }
+    }
+    .b-scanner-line {
+      animation: b_sweep 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    /* Role Rotator (Crossfade) */
+    @keyframes b_role1 {
+      0%, 22% { opacity: 1; transform: translateY(0); }
+      25%, 97% { opacity: 0; transform: translateY(12px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes b_role2 {
+      0%, 23% { opacity: 0; transform: translateY(12px); }
+      26%, 48% { opacity: 1; transform: translateY(0); }
+      51%, 100% { opacity: 0; transform: translateY(12px); }
+    }
+    @keyframes b_role3 {
+      0%, 49% { opacity: 0; transform: translateY(12px); }
+      52%, 73% { opacity: 1; transform: translateY(0); }
+      76%, 100% { opacity: 0; transform: translateY(12px); }
+    }
+    @keyframes b_role4 {
+      0%, 74% { opacity: 0; transform: translateY(12px); }
+      77%, 96% { opacity: 1; transform: translateY(0); }
+      99%, 100% { opacity: 0; transform: translateY(12px); }
+    }
+
+    .b-role-1 { animation: b_role1 14s infinite; }
+    .b-role-2 { animation: b_role2 14s infinite; }
+    .b-role-3 { animation: b_role3 14s infinite; }
+    .b-role-4 { animation: b_role4 14s infinite; }
+
+    /* Particles Float */
+    @keyframes b_float1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-8px, -14px) scale(1.1); }
+    }
+    @keyframes b_float2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(10px, -18px) scale(0.9); }
+    }
+    .b-p1 { animation: b_float1 4s ease-in-out infinite; }
+    .b-p2 { animation: b_float2 5.5s ease-in-out infinite; }
+
+    /* Neon Sign Flicker */
+    @keyframes b_neon {
+      0%, 19.99%, 22%, 62.99%, 64%, 64.99%, 70%, 100% {
+        opacity: 0.95;
+        filter: drop-shadow(0 0 8px #f472b6) drop-shadow(0 0 16px #a78bfa);
+      }
+      20%, 21.99%, 63%, 63.99%, 65%, 69.99% {
+        opacity: 0.35;
+        filter: none;
+      }
+    }
+    .b-neon {
+      animation: b_neon 7s infinite;
+    }
+
+    /* Pulse Dot */
+    @keyframes b_pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.6; }
+    }
+    .b-pulse-dot {
+      transform-origin: 78px 145px;
+      animation: b_pulse 2s ease-in-out infinite;
+    }
+
+    /* Viewfinder REC Dot */
+    @keyframes b_rec {
+      0%, 100% { fill: #ef4444; opacity: 1; }
+      50% { fill: #ef4444; opacity: 0.2; }
+    }
+    .b-rec-dot {
+      animation: b_rec 1.2s infinite;
+    }
+
+    /* Code Card Typing Steps */
+    @keyframes b_code_glow {
+      0%, 100% { stroke: #a78bfa; stroke-opacity: 0.3; }
+      50% { stroke: #22d3ee; stroke-opacity: 0.6; }
+    }
+    .b-code-frame {
+      animation: b_code_glow 6s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Root Canvas Container with Rounded Edges -->
+  <g clip-path="url(#b_banner_clip)">
+    <!-- Base Canvas Background -->
+    <rect x="0" y="0" width="1200" height="680" fill="#0d0e16" />
+    <rect x="0" y="0" width="1200" height="680" fill="url(#b_bg_glow1)" />
+    <rect x="0" y="0" width="1200" height="680" fill="url(#b_bg_glow2)" />
+    <rect x="0" y="0" width="1200" height="680" fill="url(#b_bg_glow3)" />
+    <!-- Subtle Dot Texture -->
+    <rect x="0" y="0" width="1200" height="680" fill="url(#b_dot_pattern)" />
+
+    <!-- Viewfinder UI Elements (Top-Left & Corners) -->
+    <g stroke="#a78bfa" stroke-width="2" stroke-linecap="round" opacity="0.4" fill="none">
+      <!-- Top-Left Bracket -->
+      <path d="M 28 44 L 28 28 L 44 28" />
+      <!-- Top-Right Bracket -->
+      <path d="M 1172 44 L 1172 28 L 1156 28" />
+      <!-- Bottom-Left Bracket -->
+      <path d="M 28 636 L 28 652 L 44 652" />
+      <!-- Bottom-Right Bracket -->
+      <path d="M 1172 636 L 1172 652 L 1156 652" />
+    </g>
+
+    <!-- Camera Viewfinder HUD / Meta Bar -->
+    <g class="b-font-mono" font-size="12" fill="#94a3b8" letter-spacing="1">
+      <!-- REC Indicator -->
+      <circle class="b-rec-dot" cx="64" cy="40" r="5" />
+      <text x="76" y="44" fill="#f87171" font-weight="700">REC [RAW: 4K 60FPS]</text>
+      
+      <!-- Central Viewfinder Crosshairs -->
+      <path d="M 600 24 L 600 32 M 600 648 L 600 656 M 24 340 L 32 340 M 1168 340 L 1176 340" stroke="#a78bfa" stroke-width="1.5" opacity="0.3" />
+      
+      <!-- Viewfinder Code / File Details -->
+      <text x="730" y="44" fill="#64748b">ISO 400</text>
+      <text x="820" y="44" fill="#64748b">F/1.8</text>
+      <text x="890" y="44" fill="#64748b">1/120s</text>
+      <text x="970" y="44" fill="#22d3ee" font-weight="600">PROFILE_v2026.0</text>
+    </g>
+
+    <!-- Top Terminal Command Bar -->
+    <g transform="translate(60, 72)">
+      <!-- Terminal Glass Background -->
+      <rect x="0" y="0" width="1080" height="42" rx="10" fill="#151824" fill-opacity="0.75" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1" />
+      <!-- Terminal Window Controls -->
+      <circle cx="22" cy="21" r="5.5" fill="#f87171" />
+      <circle cx="38" cy="21" r="5.5" fill="#fbbf24" />
+      <circle cx="54" cy="21" r="5.5" fill="#34d399" />
+      
+      <!-- Terminal Command Text -->
+      <text x="78" y="26" class="b-font-mono" font-size="14" fill="#64748b">
+        <tspan fill="#34d399" font-weight="600">user@dev</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#38bdf8">~</tspan><tspan fill="#e2e8f0">$ cat README.md</tspan>
+      </text>
+      <!-- Blinking Terminal Cursor -->
+      <rect class="b-cursor" x="292" y="14" width="8" height="15" fill="#22d3ee" />
+      <!-- Branch Tag -->
+      <rect x="965" y="10" width="98" height="22" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="978" y="25" class="b-font-mono" font-size="11" fill="#38bdf8">main:clean</text>
+    </g>
+
+    <!-- LEFT COLUMN: Identity, Roles, Pitch, Badges, Collab Pill -->
+    <g transform="translate(60, 140)">
+      <!-- "Open to Collabs" Pill -->
+      <g>
+        <rect x="0" y="0" width="186" height="30" rx="15" fill="#102a27" stroke="#14b8a6" stroke-opacity="0.6" stroke-width="1.2" />
+        <circle class="b-pulse-dot" cx="18" cy="15" r="4.5" fill="#2dd4bf" />
+        <circle cx="18" cy="15" r="4.5" fill="#2dd4bf" />
+        <text x="32" y="20" class="b-font-mono" font-size="11.5" font-weight="600" fill="#5eead4" letter-spacing="0.5">OPEN TO COLLABS</text>
+      </g>
+
+      <!-- Subtitle Greeting -->
+      <text x="0" y="70" class="b-font-mono" font-size="18" fill="#94a3b8" letter-spacing="1">
+        Hi there, I'm
+      </text>
+
+      <!-- Big Animated Aurora Name -->
+      <text x="0" y="125" class="b-font-sans" font-size="52" font-weight="900" fill="url(#b_aurora_text)" letter-spacing="-1">
+        Revanth Yarramsetti
+      </text>
+
+      <!-- Cycling Dynamic Role Section -->
+      <g transform="translate(0, 168)">
+        <rect x="0" y="0" width="480" height="38" rx="8" fill="#151824" fill-opacity="0.6" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+        <text x="14" y="24" class="b-font-mono" font-size="15" font-weight="700" fill="#22d3ee">❯</text>
+        
+        <!-- Role 1 -->
+        <g class="b-role-1">
+          <text x="32" y="24" class="b-font-mono" font-size="14.5" font-weight="600" fill="#f8fafc">
+            Agentic AI Systems Architect
+          </text>
+        </g>
+        <!-- Role 2 -->
+        <g class="b-role-2">
+          <text x="32" y="24" class="b-font-mono" font-size="14.5" font-weight="600" fill="#f8fafc">
+            Full-Stack Software Engineer
+          </text>
+        </g>
+        <!-- Role 3 -->
+        <g class="b-role-3">
+          <text x="32" y="24" class="b-font-mono" font-size="14.5" font-weight="600" fill="#f8fafc">
+            LLM Guardrails &amp; Eval Engineer
+          </text>
+        </g>
+        <!-- Role 4 -->
+        <g class="b-role-4">
+          <text x="32" y="24" class="b-font-mono" font-size="14.5" font-weight="600" fill="#f8fafc">
+            Python, TypeScript &amp; FastAPI Dev
+          </text>
+        </g>
+      </g>
+
+      <!-- One-line Elevator Pitch -->
+      <g transform="translate(0, 230)">
+        <text x="0" y="0" class="b-font-sans" font-size="15.5" fill="#cbd5e1" font-weight="400">
+          Building local-first agentic software, deterministic guardrail engines,
+        </text>
+        <text x="0" y="24" class="b-font-sans" font-size="15.5" fill="#cbd5e1" font-weight="400">
+          and high-throughput inference gateways that run with zero fragility.
+        </text>
+      </g>
+
+      <!-- Tagline Quote Box -->
+      <g transform="translate(0, 280)">
+        <rect x="0" y="0" width="480" height="42" rx="10" fill="#1e1b4b" fill-opacity="0.4" stroke="#a78bfa" stroke-opacity="0.3" stroke-width="1" />
+        <text x="16" y="26" class="b-font-mono" font-size="12" fill="#c084fc">
+          “Code with purpose. Evaluate with honesty. Ship with pride.”
+        </text>
+      </g>
+
+      <!-- Tech Stack Pills (Row 1 & 2) -->
+      <g transform="translate(0, 342)">
+        <!-- Pill: Python -->
+        <g transform="translate(0, 0)">
+          <rect x="0" y="0" width="76" height="26" rx="13" fill="#151824" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1" />
+          <text x="38" y="17" class="b-font-mono" font-size="11" fill="#7dd3fc" text-anchor="middle" font-weight="600">Python</text>
+        </g>
+        <!-- Pill: TypeScript -->
+        <g transform="translate(84, 0)">
+          <rect x="0" y="0" width="96" height="26" rx="13" fill="#151824" stroke="#60a5fa" stroke-opacity="0.4" stroke-width="1" />
+          <text x="48" y="17" class="b-font-mono" font-size="11" fill="#93c5fd" text-anchor="middle" font-weight="600">TypeScript</text>
+        </g>
+        <!-- Pill: FastAPI -->
+        <g transform="translate(188, 0)">
+          <rect x="0" y="0" width="80" height="26" rx="13" fill="#151824" stroke="#34d399" stroke-opacity="0.4" stroke-width="1" />
+          <text x="40" y="17" class="b-font-mono" font-size="11" fill="#6ee7b7" text-anchor="middle" font-weight="600">FastAPI</text>
+        </g>
+        <!-- Pill: React -->
+        <g transform="translate(276, 0)">
+          <rect x="0" y="0" width="68" height="26" rx="13" fill="#151824" stroke="#22d3ee" stroke-opacity="0.4" stroke-width="1" />
+          <text x="34" y="17" class="b-font-mono" font-size="11" fill="#67e8f9" text-anchor="middle" font-weight="600">React</text>
+        </g>
+        <!-- Pill: Agentic MCP -->
+        <g transform="translate(352, 0)">
+          <rect x="0" y="0" width="102" height="26" rx="13" fill="#151824" stroke="#f472b6" stroke-opacity="0.4" stroke-width="1" />
+          <text x="51" y="17" class="b-font-mono" font-size="11" fill="#f472b6" text-anchor="middle" font-weight="600">MCP Protocol</text>
+        </g>
+
+        <!-- Row 2 Pills -->
+        <g transform="translate(0, 34)">
+          <!-- Pill: Pytest/Evals -->
+          <g transform="translate(0, 0)">
+            <rect x="0" y="0" width="94" height="26" rx="13" fill="#151824" stroke="#a78bfa" stroke-opacity="0.4" stroke-width="1" />
+            <text x="47" y="17" class="b-font-mono" font-size="11" fill="#c4b5fd" text-anchor="middle" font-weight="600">Evals &amp; CI</text>
+          </g>
+          <!-- Pill: SQLite/Postgres -->
+          <g transform="translate(102, 0)">
+            <rect x="0" y="0" width="108" height="26" rx="13" fill="#151824" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1" />
+            <text x="54" y="17" class="b-font-mono" font-size="11" fill="#7dd3fc" text-anchor="middle" font-weight="600">pgvector/SQL</text>
+          </g>
+          <!-- Pill: Docker -->
+          <g transform="translate(218, 0)">
+            <rect x="0" y="0" width="76" height="26" rx="13" fill="#151824" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1" />
+            <text x="38" y="17" class="b-font-mono" font-size="11" fill="#38bdf8" text-anchor="middle" font-weight="600">Docker</text>
+          </g>
+          <!-- Pill: GitHub Actions -->
+          <g transform="translate(302, 0)">
+            <rect x="0" y="0" width="124" height="26" rx="13" fill="#151824" stroke="#e2e8f0" stroke-opacity="0.3" stroke-width="1" />
+            <text x="62" y="17" class="b-font-mono" font-size="11" fill="#e2e8f0" text-anchor="middle" font-weight="600">GitHub Actions</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- Location / Meta Row -->
+      <g transform="translate(0, 442)">
+        <rect x="0" y="0" width="480" height="34" rx="8" fill="#151824" fill-opacity="0.8" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1" />
+        <!-- Pin Icon -->
+        <path d="M 18 16 C 18 13 21 10 24 10 C 27 10 30 13 30 16 C 30 20 24 25 24 25 C 24 25 18 20 18 16 Z" fill="none" stroke="#f472b6" stroke-width="1.5" />
+        <circle cx="24" cy="15" r="1.5" fill="#f472b6" />
+        <text x="36" y="21" class="b-font-sans" font-size="12" fill="#cbd5e1">Hyderabad, India</text>
+        
+        <!-- User Icon -->
+        <circle cx="160" cy="15" r="3.5" fill="none" stroke="#22d3ee" stroke-width="1.5" />
+        <path d="M 154 24 C 154 21 157 20 160 20 C 163 20 166 21 166 24" fill="none" stroke="#22d3ee" stroke-width="1.5" />
+        <text x="173" y="21" class="b-font-sans" font-size="12" fill="#cbd5e1">@Revanth2716</text>
+
+        <!-- Repos Badge -->
+        <path d="M 276 13 L 286 13 L 286 23 L 276 23 Z" fill="none" stroke="#a78bfa" stroke-width="1.5" />
+        <path d="M 279 16 L 283 16 M 279 19 L 283 19" stroke="#a78bfa" stroke-width="1.2" />
+        <text x="292" y="21" class="b-font-sans" font-size="12" fill="#cbd5e1"><tspan font-weight="700" fill="#a78bfa">29</tspan> Public Repos</text>
+
+        <!-- Activity Status -->
+        <circle cx="398" cy="17" r="3.5" fill="#34d399" />
+        <text x="408" y="21" class="b-font-sans" font-size="12" fill="#34d399">48+ Commits/Yr</text>
+      </g>
+    </g>
+
+    <!-- RIGHT COLUMN: Code Editor Card + Neon Sign + Viewfinder Frame -->
+    <g transform="translate(580, 140)">
+      <!-- Code Editor Window Frame -->
+      <rect class="b-code-frame" x="0" y="0" width="560" height="420" rx="16" fill="url(#b_card_bg)" stroke="url(#b_border_grad)" stroke-width="1.5" />
+      
+      <!-- Code Window Header Bar -->
+      <path d="M 0 16 C 0 7.16 7.16 0 16 0 L 544 0 C 552.84 0 560 7.16 560 16 L 560 40 L 0 40 Z" fill="#1c1f30" />
+      <circle cx="20" cy="20" r="5" fill="#f87171" />
+      <circle cx="36" cy="20" r="5" fill="#fbbf24" />
+      <circle cx="52" cy="20" r="5" fill="#34d399" />
+      
+      <!-- Tab Title -->
+      <rect x="76" y="8" width="180" height="26" rx="6" fill="#151824" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+      <text x="92" y="25" class="b-font-mono" font-size="11.5" fill="#38bdf8">⚡ forgepilot_agent.py</text>
+      <text x="450" y="25" class="b-font-mono" font-size="11" fill="#64748b">UTF-8 • Python 3.12</text>
+
+      <!-- Code Line Numbers & Syntax Content -->
+      <g transform="translate(20, 60)" class="b-font-mono" font-size="12.5" line-height="22">
+        <!-- Line Numbers Column -->
+        <g fill="#475569" text-anchor="end">
+          <text x="15" y="20">01</text>
+          <text x="15" y="44">02</text>
+          <text x="15" y="68">03</text>
+          <text x="15" y="92">04</text>
+          <text x="15" y="116">05</text>
+          <text x="15" y="140">06</text>
+          <text x="15" y="164">07</text>
+          <text x="15" y="188">08</text>
+          <text x="15" y="212">09</text>
+          <text x="15" y="236">10</text>
+          <text x="15" y="260">11</text>
+          <text x="15" y="284">12</text>
+          <text x="15" y="308">13</text>
+          <text x="15" y="332">14</text>
+        </g>
+
+        <!-- Vertical Divider -->
+        <line x1="28" y1="5" x2="28" y2="340" stroke="#334155" stroke-opacity="0.5" stroke-width="1" />
+
+        <!-- Syntax Highlighted Lines -->
+        <g transform="translate(42, 0)">
+          <!-- Line 1 -->
+          <text x="0" y="20">
+            <tspan fill="#f472b6">from</tspan> <tspan fill="#e2e8f0">forgepilot.orchestrator</tspan> <tspan fill="#f472b6">import</tspan> <tspan fill="#38bdf8">AutonomousEngineer</tspan>
+          </text>
+          <!-- Line 2 -->
+          <text x="0" y="44">
+            <tspan fill="#f472b6">from</tspan> <tspan fill="#e2e8f0">evalforge.engine</tspan> <tspan fill="#f472b6">import</tspan> <tspan fill="#38bdf8">DeterministicGuardrail</tspan>
+          </text>
+          <!-- Line 3 -->
+          <text x="0" y="68" fill="#64748b">
+            # Initializing human-governed agentic pipeline
+          </text>
+          <!-- Line 4 -->
+          <text x="0" y="92">
+            <tspan fill="#f472b6">async def</tspan> <tspan fill="#34d399">buildDreams</tspan>(<tspan fill="#fbbf24">developer</tspan>: <tspan fill="#22d3ee">str</tspan> = <tspan fill="#fde047">"Revanth"</tspan>):
+          </text>
+          <!-- Line 5 -->
+          <text x="18" y="116">
+            <tspan fill="#e2e8f0">agent</tspan> = <tspan fill="#38bdf8">AutonomousEngineer</tspan>(
+          </text>
+          <!-- Line 6 -->
+          <text x="36" y="140">
+            <tspan fill="#94a3b8">tools</tspan>=[<tspan fill="#a78bfa">"mcp.inspect"</tspan>, <tspan fill="#a78bfa">"ast.transform"</tspan>, <tspan fill="#a78bfa">"pytest.run"</tspan>],
+          </text>
+          <!-- Line 7 -->
+          <text x="36" y="164">
+            <tspan fill="#94a3b8">evaluation_gate</tspan>=<tspan fill="#38bdf8">DeterministicGuardrail</tspan>(<tspan fill="#fbbf24">strict</tspan>=<tspan fill="#f472b6">True</tspan>),
+          </text>
+          <!-- Line 8 -->
+          <text x="36" y="188">
+            <tspan fill="#94a3b8">human_in_the_loop</tspan>=<tspan fill="#34d399">True</tspan>  <tspan fill="#64748b"># No unauthorized git writes</tspan>
+          </text>
+          <!-- Line 9 -->
+          <text x="18" y="212">
+            )
+          </text>
+          <!-- Line 10 -->
+          <text x="18" y="236">
+            <tspan fill="#f472b6">while</tspan> <tspan fill="#fbbf24">developer</tspan>.<tspan fill="#22d3ee">is_building</tspan>():
+          </text>
+          <!-- Line 11 -->
+          <text x="36" y="260">
+            <tspan fill="#f472b6">await</tspan> <tspan fill="#e2e8f0">agent</tspan>.<tspan fill="#34d399">plan_and_verify</tspan>(<tspan fill="#fbbf24">goal</tspan>=<tspan fill="#fde047">"Ship World-Class Systems"</tspan>)
+          </text>
+          <!-- Line 12 -->
+          <text x="36" y="284">
+            <tspan fill="#f472b6">await</tspan> <tspan fill="#e2e8f0">agent</tspan>.<tspan fill="#34d399">run_regression_tests</tspan>(<tspan fill="#fbbf24">baseline</tspan>=<tspan fill="#34d399">100%</tspan>)
+          </text>
+          <!-- Line 13 -->
+          <text x="36" y="308">
+            <tspan fill="#f472b6">return</tspan> <tspan fill="#e2e8f0">{</tspan><tspan fill="#fde047">"status"</tspan>: <tspan fill="#34d399">"PASSED"</tspan>, <tspan fill="#fde047">"stars"</tspan>: <tspan fill="#f472b6">"unlimited"</tspan><tspan fill="#e2e8f0">}</tspan>
+          </text>
+          <!-- Line 14 -->
+          <text x="18" y="332">
+            <tspan fill="#64748b"># Pipeline status: Verified 10/10 test checks pass</tspan>
+          </text>
+        </g>
+      </g>
+
+      <!-- Mini Live Execution Console at bottom of card -->
+      <g transform="translate(16, 368)">
+        <rect x="0" y="0" width="528" height="38" rx="8" fill="#0d0e16" stroke="#22d3ee" stroke-opacity="0.3" stroke-width="1" />
+        <circle cx="16" cy="19" r="4" fill="#34d399" />
+        <text x="28" y="23" class="b-font-mono" font-size="11" fill="#34d399">● [PASS]</text>
+        <text x="82" y="23" class="b-font-mono" font-size="11" fill="#94a3b8">evalforge: 4 golden cases verified • 0 regression</text>
+        <text x="470" y="23" class="b-font-mono" font-size="11" fill="#a78bfa" font-weight="600">0.0ms</text>
+      </g>
+    </g>
+
+    <!-- Neon Sign: "KEEP CODING KEEP GROWING" -->
+    <g transform="translate(580, 580)">
+      <rect x="0" y="0" width="560" height="42" rx="10" fill="#151824" fill-opacity="0.7" stroke="#f472b6" stroke-opacity="0.25" stroke-width="1" />
+      <g class="b-neon">
+        <text x="280" y="27" class="b-font-mono" font-size="13.5" font-weight="800" fill="#f472b6" text-anchor="middle" letter-spacing="4">
+          ★ KEEP CODING • KEEP GROWING ★
+        </text>
+      </g>
+    </g>
+
+    <!-- Scrubber Bar Synced with Loop -->
+    <g transform="translate(60, 642)">
+      <rect x="0" y="0" width="480" height="4" rx="2" fill="#334155" fill-opacity="0.6" />
+      <rect x="0" y="0" width="280" height="4" rx="2" fill="url(#b_aurora_text)">
+        <animate attributeName="width" values="0;480;0" dur="8s" repeatCount="indefinite" />
+      </rect>
+    </g>
+
+    <!-- Twinkling Sparkles, Floating Hearts & Ambient Rising Particles -->
+    <!-- Twinkle 1 -->
+    <g class="b-p1" transform="translate(530, 100)">
+      <polygon points="10,0 12,7 19,10 12,13 10,20 8,13 1,10 8,7" fill="#f472b6" opacity="0.8" />
+    </g>
+    <!-- Twinkle 2 -->
+    <g class="b-p2" transform="translate(1120, 95)">
+      <polygon points="8,0 10,6 16,8 10,10 8,16 6,10 0,8 6,6" fill="#22d3ee" opacity="0.85" />
+    </g>
+    <!-- Twinkle 3 -->
+    <g class="b-p1" transform="translate(555, 540)">
+      <polygon points="7,0 9,5 14,7 9,9 7,14 5,9 0,7 5,5" fill="#a78bfa" opacity="0.75" />
+    </g>
+    <!-- Floating Heart 1 -->
+    <g class="b-p2" transform="translate(510, 310) scale(0.9)">
+      <path d="M 10 5 C 10 2 7 0 5 0 C 2 0 0 2 0 5 C 0 8 5 12 10 16 C 15 12 20 8 20 5 C 20 2 18 0 15 0 C 13 0 10 2 10 5 Z" fill="#f472b6" fill-opacity="0.5" />
+    </g>
+    <!-- Floating Heart 2 -->
+    <g class="b-p1" transform="translate(1135, 480) scale(0.8)">
+      <path d="M 10 5 C 10 2 7 0 5 0 C 2 0 0 2 0 5 C 0 8 5 12 10 16 C 15 12 20 8 20 5 C 20 2 18 0 15 0 C 13 0 10 2 10 5 Z" fill="#a78bfa" fill-opacity="0.45" />
+    </g>
+
+    <!-- FULL WIDTH HORIZONTAL SCANNER SWEEPING CONTINUOUSLY TOP-TO-BOTTOM -->
+    <g class="b-scanner-line">
+      <rect x="0" y="0" width="1200" height="24" fill="url(#b_scanner_grad)" />
+      <line x1="0" y1="12" x2="1200" y2="12" stroke="#22d3ee" stroke-width="1.8" stroke-opacity="0.75" />
+    </g>
+
+    <!-- Outer Perimeter Hairline Gradient Border -->
+    <rect x="1" y="1" width="1198" height="678" rx="27" ry="27" fill="none" stroke="url(#b_border_grad)" stroke-width="1.5" />
+  </g>
+</svg>

@@ -1,0 +1,401 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="al_glow_left" cx="20%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="al_glow_right" cx="80%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#f472b6" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Card Glass Gradient -->
+    <linearGradient id="al_card_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#151824" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Border Gradients -->
+    <linearGradient id="al_border_left" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.5" />
+      <stop offset="50%" stop-color="#a78bfa" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.1" />
+    </linearGradient>
+    <linearGradient id="al_border_right" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.5" />
+      <stop offset="50%" stop-color="#f472b6" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0.4" />
+    </linearGradient>
+
+    <!-- Header Gradient Text -->
+    <linearGradient id="al_text_grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="100%" stop-color="#a78bfa" />
+    </linearGradient>
+    <linearGradient id="al_text_grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a78bfa" />
+      <stop offset="100%" stop-color="#f472b6" />
+    </linearGradient>
+
+    <!-- Dot Pattern -->
+    <pattern id="al_dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#64748b" fill-opacity="0.12" />
+    </pattern>
+
+    <!-- Clip Paths -->
+    <clipPath id="al_carousel_clip">
+      <rect x="0" y="0" width="530" height="270" rx="14" />
+    </clipPath>
+  </defs>
+
+  <style>
+    .al-mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace; }
+    .al-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+
+    /* Blinking URL cursor */
+    @keyframes al_blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .al-url-cursor {
+      animation: al_blink 0.9s infinite;
+    }
+
+    /* Carousel Story Progress Bars */
+    @keyframes al_bar1 {
+      0% { width: 0%; }
+      22%, 100% { width: 100%; }
+    }
+    @keyframes al_bar2 {
+      0%, 25% { width: 0%; }
+      47%, 100% { width: 100%; }
+    }
+    @keyframes al_bar3 {
+      0%, 50% { width: 0%; }
+      72%, 100% { width: 100%; }
+    }
+    @keyframes al_bar4 {
+      0%, 75% { width: 0%; }
+      97%, 100% { width: 100%; }
+    }
+    .al-pbar-1 { animation: al_bar1 16s infinite ease-out; }
+    .al-pbar-2 { animation: al_bar2 16s infinite ease-out; }
+    .al-pbar-3 { animation: al_bar3 16s infinite ease-out; }
+    .al-pbar-4 { animation: al_bar4 16s infinite ease-out; }
+
+    /* Carousel Slides (Crossfade and Slide) */
+    @keyframes al_slide1 {
+      0%, 22% { opacity: 1; transform: translateX(0); }
+      25%, 97% { opacity: 0; transform: translateX(30px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes al_slide2 {
+      0%, 22% { opacity: 0; transform: translateX(-30px); }
+      25%, 47% { opacity: 1; transform: translateX(0); }
+      50%, 100% { opacity: 0; transform: translateX(30px); }
+    }
+    @keyframes al_slide3 {
+      0%, 47% { opacity: 0; transform: translateX(-30px); }
+      50%, 72% { opacity: 1; transform: translateX(0); }
+      75%, 100% { opacity: 0; transform: translateX(30px); }
+    }
+    @keyframes al_slide4 {
+      0%, 72% { opacity: 0; transform: translateX(-30px); }
+      75%, 97% { opacity: 1; transform: translateX(0); }
+      100% { opacity: 0; transform: translateX(30px); }
+    }
+    .al-slide-1 { animation: al_slide1 16s infinite; }
+    .al-slide-2 { animation: al_slide2 16s infinite; }
+    .al-slide-3 { animation: al_slide3 16s infinite; }
+    .al-slide-4 { animation: al_slide4 16s infinite; }
+
+    /* Daily Rings Animation (Filling on loop) */
+    @keyframes al_ring_fill1 {
+      0% { stroke-dashoffset: 251.2; }
+      40%, 100% { stroke-dashoffset: 20; }
+    }
+    @keyframes al_ring_fill2 {
+      0% { stroke-dashoffset: 188.4; }
+      45%, 100% { stroke-dashoffset: 35; }
+    }
+    @keyframes al_ring_fill3 {
+      0% { stroke-dashoffset: 125.6; }
+      50%, 100% { stroke-dashoffset: 28; }
+    }
+    .al-ring-1 {
+      stroke-dasharray: 251.2;
+      animation: al_ring_fill1 6s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+    }
+    .al-ring-2 {
+      stroke-dasharray: 188.4;
+      animation: al_ring_fill2 6s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+    }
+    .al-ring-3 {
+      stroke-dasharray: 125.6;
+      animation: al_ring_fill3 6s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+    }
+  </style>
+
+  <!-- Background Canvas -->
+  <rect x="0" y="0" width="1200" height="540" rx="24" fill="#0d0e16" />
+  <rect x="0" y="0" width="1200" height="540" fill="url(#al_glow_left)" />
+  <rect x="0" y="0" width="1200" height="540" fill="url(#al_glow_right)" />
+  <rect x="0" y="0" width="1200" height="540" fill="url(#al_dots)" rx="24" />
+
+  <!-- ==================== LEFT CARD: WHAT I BUILD ==================== -->
+  <g transform="translate(30, 25)">
+    <!-- Card Frame -->
+    <rect x="0" y="0" width="555" height="490" rx="20" fill="url(#al_card_bg)" stroke="url(#al_border_left)" stroke-width="1.5" />
+    
+    <!-- Fake Browser Window Header -->
+    <path d="M 0 20 C 0 8.95 8.95 0 20 0 L 535 0 C 546.05 0 555 8.95 555 20 L 555 48 L 0 48 Z" fill="#1b1e2e" />
+    <circle cx="22" cy="24" r="5" fill="#f87171" />
+    <circle cx="38" cy="24" r="5" fill="#fbbf24" />
+    <circle cx="54" cy="24" r="5" fill="#34d399" />
+
+    <!-- Browser URL Bar -->
+    <rect x="76" y="10" width="455" height="28" rx="7" fill="#0d0e16" stroke="#334155" stroke-width="1" />
+    <g transform="translate(90, 20)">
+      <!-- Lock Icon -->
+      <path d="M 2 8 L 2 5 C 2 2.8 3.8 1 6 1 C 8.2 1 10 2.8 10 5 L 10 8 M 0 8 L 12 8 L 12 15 L 0 15 Z" fill="none" stroke="#22d3ee" stroke-width="1.3" />
+    </g>
+    <text x="110" y="28" class="al-mono" font-size="12" fill="#94a3b8">
+      https://<tspan fill="#f8fafc">revanth.dev</tspan>/<tspan fill="#22d3ee">core-capabilities</tspan>
+    </text>
+    <!-- Blinking Cursor -->
+    <rect class="al-url-cursor" x="330" y="17" width="7" height="14" fill="#22d3ee" />
+
+    <!-- Section Title -->
+    <g transform="translate(26, 76)">
+      <text x="0" y="0" class="al-mono" font-size="11" fill="#22d3ee" font-weight="700" letter-spacing="1.5">ENGINEERING PILLARS</text>
+      <text x="0" y="25" class="al-sans" font-size="24" font-weight="800" fill="url(#al_text_grad1)">What I Build &amp; Architect</text>
+    </g>
+
+    <!-- Three Capability Rows with Icon Tiles -->
+    
+    <!-- Capability Row 1: Agentic Systems & MCP -->
+    <g transform="translate(26, 138)">
+      <rect x="0" y="0" width="503" height="96" rx="14" fill="#121522" stroke="#22d3ee" stroke-opacity="0.3" stroke-width="1" />
+      <!-- Icon Tile -->
+      <rect x="14" y="14" width="68" height="68" rx="12" fill="#0e2338" stroke="#22d3ee" stroke-width="1.2" />
+      <!-- Agentic Robot / Hex Core Icon -->
+      <g transform="translate(30, 30)">
+        <polygon points="18,3 33,12 33,30 18,39 3,30 3,12" fill="none" stroke="#22d3ee" stroke-width="2" />
+        <circle cx="18" cy="21" r="5" fill="#22d3ee" />
+      </g>
+      <!-- Texts -->
+      <text x="96" y="34" class="al-sans" font-size="16" font-weight="700" fill="#f8fafc">Agentic AI &amp; MCP Tool Systems</text>
+      <text x="96" y="56" class="al-sans" font-size="12.5" fill="#94a3b8">Multi-agent workflows (Planner, Coder, Tester, Evaluator).</text>
+      <text x="96" y="74" class="al-mono" font-size="11" fill="#38bdf8">ForgePilot • stdio JSON-RPC MCP • AST Synthesis</text>
+    </g>
+
+    <!-- Capability Row 2: Deterministic Evals & Guardrails -->
+    <g transform="translate(26, 248)">
+      <rect x="0" y="0" width="503" height="96" rx="14" fill="#121522" stroke="#a78bfa" stroke-opacity="0.3" stroke-width="1" />
+      <!-- Icon Tile -->
+      <rect x="14" y="14" width="68" height="68" rx="12" fill="#201538" stroke="#a78bfa" stroke-width="1.2" />
+      <!-- Shield / Guardrail Icon -->
+      <g transform="translate(32, 30)">
+        <path d="M 16 2 L 30 7 L 30 19 C 30 28 16 35 16 35 C 16 35 2 28 2 19 L 2 7 Z" fill="none" stroke="#a78bfa" stroke-width="2" />
+        <path d="M 11 18 L 15 22 L 23 13" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" />
+      </g>
+      <!-- Texts -->
+      <text x="96" y="34" class="al-sans" font-size="16" font-weight="700" fill="#f8fafc">Deterministic Evals &amp; Guardrails</text>
+      <text x="96" y="56" class="al-sans" font-size="12.5" fill="#94a3b8">Prompt injection defense, groundedness scoring &amp; CI gates.</text>
+      <text x="96" y="74" class="al-mono" font-size="11" fill="#c084fc">EvalForge • Lexical Proxy Metrics • Zero-Leakage</text>
+    </g>
+
+    <!-- Capability Row 3: Resilient Full-Stack & Gateways -->
+    <g transform="translate(26, 358)">
+      <rect x="0" y="0" width="503" height="96" rx="14" fill="#121522" stroke="#f472b6" stroke-opacity="0.3" stroke-width="1" />
+      <!-- Icon Tile -->
+      <rect x="14" y="14" width="68" height="68" rx="12" fill="#30142b" stroke="#f472b6" stroke-width="1.2" />
+      <!-- Gateway / Cloud Network Icon -->
+      <g transform="translate(32, 32)">
+        <rect x="4" y="4" width="24" height="14" rx="3" fill="none" stroke="#f472b6" stroke-width="1.8" />
+        <line x1="16" y1="18" x2="16" y2="28" stroke="#f472b6" stroke-width="1.8" />
+        <circle cx="8" cy="28" r="3" fill="#22d3ee" />
+        <circle cx="24" cy="28" r="3" fill="#34d399" />
+      </g>
+      <!-- Texts -->
+      <text x="96" y="34" class="al-sans" font-size="16" font-weight="700" fill="#f8fafc">Resilient Gateways &amp; SRE Systems</text>
+      <text x="96" y="56" class="al-sans" font-size="12.5" fill="#94a3b8">Incident intelligence, fallback routing &amp; full-stack apps.</text>
+      <text x="96" y="74" class="al-mono" font-size="11" fill="#f472b6">CloudOps Sentinel • AI Inference Gateway • FastAPI</text>
+    </g>
+  </g>
+
+  <!-- ==================== RIGHT CARD: HOBBIES & DAILY RINGS ==================== -->
+  <g transform="translate(615, 25)">
+    <!-- Card Frame -->
+    <rect x="0" y="0" width="555" height="490" rx="20" fill="url(#al_card_bg)" stroke="url(#al_border_right)" stroke-width="1.5" />
+
+    <!-- Top Instagram-style Carousel Progress Bars -->
+    <g transform="translate(24, 20)">
+      <!-- Bar 1 -->
+      <rect x="0" y="0" width="120" height="4" rx="2" fill="#334155" />
+      <rect class="al-pbar-1" x="0" y="0" width="120" height="4" rx="2" fill="#f472b6" />
+      
+      <!-- Bar 2 -->
+      <rect x="128" y="0" width="120" height="4" rx="2" fill="#334155" />
+      <rect class="al-pbar-2" x="128" y="0" width="120" height="4" rx="2" fill="#22d3ee" />
+
+      <!-- Bar 3 -->
+      <rect x="256" y="0" width="120" height="4" rx="2" fill="#334155" />
+      <rect class="al-pbar-3" x="256" y="0" width="120" height="4" rx="2" fill="#a78bfa" />
+
+      <!-- Bar 4 -->
+      <rect x="384" y="0" width="123" height="4" rx="2" fill="#334155" />
+      <rect class="al-pbar-4" x="384" y="0" width="123" height="4" rx="2" fill="#fbbf24" />
+    </g>
+
+    <!-- Carousel Header -->
+    <g transform="translate(26, 48)">
+      <text x="0" y="0" class="al-mono" font-size="11" fill="#f472b6" font-weight="700" letter-spacing="1.5">PASSIONS &amp; RHYTHM</text>
+      <text x="0" y="24" class="al-sans" font-size="24" font-weight="800" fill="url(#al_text_grad2)">Life, Learning &amp; Focus</text>
+    </g>
+
+    <!-- Hobbies Carousel Container -->
+    <g transform="translate(26, 96)" clip-path="url(#al_carousel_clip)">
+      <rect x="0" y="0" width="503" height="230" rx="14" fill="#121522" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+
+      <!-- SLIDE 1: Autonomous AI Systems Research -->
+      <g class="al-slide-1">
+        <rect x="16" y="16" width="471" height="198" rx="12" fill="#161b2c" />
+        <g transform="translate(36, 36)">
+          <!-- Icon -->
+          <circle cx="28" cy="28" r="24" fill="#1e1b4b" stroke="#a78bfa" stroke-width="1.5" />
+          <text x="28" y="35" class="al-sans" font-size="20" text-anchor="middle">🧠</text>
+          <!-- Title & Body -->
+          <text x="70" y="22" class="al-sans" font-size="18" font-weight="700" fill="#f8fafc">Agentic Research &amp; Tooling</text>
+          <text x="70" y="44" class="al-mono" font-size="12" fill="#c084fc">Building autonomous coding engines</text>
+          <text x="0" y="90" class="al-sans" font-size="13.5" fill="#cbd5e1">
+            Diving deep into multi-agent coordination, deterministic AST transforms,
+          </text>
+          <text x="0" y="112" class="al-sans" font-size="13.5" fill="#cbd5e1">
+            and Model Context Protocol (MCP) standards for offline AI workflows.
+          </text>
+          <g transform="translate(0, 134)">
+            <rect x="0" y="0" width="94" height="22" rx="6" fill="#1e1b4b" />
+            <text x="47" y="15" class="al-mono" font-size="10.5" fill="#a78bfa" text-anchor="middle">#AgenticAI</text>
+            <rect x="102" y="0" width="86" height="22" rx="6" fill="#082f49" />
+            <text x="145" y="15" class="al-mono" font-size="10.5" fill="#38bdf8" text-anchor="middle">#MCPtools</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- SLIDE 2: Cafe Hopping & Specialty Coffee -->
+      <g class="al-slide-2">
+        <rect x="16" y="16" width="471" height="198" rx="12" fill="#1d1924" />
+        <g transform="translate(36, 36)">
+          <circle cx="28" cy="28" r="24" fill="#3b1d28" stroke="#f472b6" stroke-width="1.5" />
+          <text x="28" y="35" class="al-sans" font-size="20" text-anchor="middle">☕</text>
+          <text x="70" y="22" class="al-sans" font-size="18" font-weight="700" fill="#f8fafc">Specialty Coffee &amp; Cafe Sessions</text>
+          <text x="70" y="44" class="al-mono" font-size="12" fill="#f472b6">Fueling problem solving with artisanal roasts</text>
+          <text x="0" y="90" class="al-sans" font-size="13.5" fill="#cbd5e1">
+            Finding quiet aesthetic cafes in Hyderabad, sipping fresh pour-overs,
+          </text>
+          <text x="0" y="112" class="al-sans" font-size="13.5" fill="#cbd5e1">
+            and coding out complex system architectures in flow state.
+          </text>
+          <g transform="translate(0, 134)">
+            <rect x="0" y="0" width="94" height="22" rx="6" fill="#3b1d28" />
+            <text x="47" y="15" class="al-mono" font-size="10.5" fill="#f472b6" text-anchor="middle">#CoffeeLover</text>
+            <rect x="102" y="0" width="94" height="22" rx="6" fill="#1f2937" />
+            <text x="149" y="15" class="al-mono" font-size="10.5" fill="#e5e7eb" text-anchor="middle">#FlowState</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- SLIDE 3: System Design & Architecture Diagrams -->
+      <g class="al-slide-3">
+        <rect x="16" y="16" width="471" height="198" rx="12" fill="#142129" />
+        <g transform="translate(36, 36)">
+          <circle cx="28" cy="28" r="24" fill="#083344" stroke="#22d3ee" stroke-width="1.5" />
+          <text x="28" y="35" class="al-sans" font-size="20" text-anchor="middle">📐</text>
+          <text x="70" y="22" class="al-sans" font-size="18" font-weight="700" fill="#f8fafc">System Design &amp; Whiteboarding</text>
+          <text x="70" y="44" class="al-mono" font-size="12" fill="#22d3ee">Clean boundaries &amp; deterministic safety</text>
+          <text x="0" y="90" class="al-sans" font-size="13.5" fill="#cbd5e1">
+            Drawing sequence diagrams, API contracts, sandboxed tool boundaries,
+          </text>
+          <text x="0" y="112" class="al-sans" font-size="13.5" fill="#cbd5e1">
+            and human-in-the-loop gates that prevent unintended side-effects.
+          </text>
+          <g transform="translate(0, 134)">
+            <rect x="0" y="0" width="94" height="22" rx="6" fill="#083344" />
+            <text x="47" y="15" class="al-mono" font-size="10.5" fill="#22d3ee" text-anchor="middle">#Architecture</text>
+            <rect x="102" y="0" width="102" height="22" rx="6" fill="#142129" />
+            <text x="153" y="15" class="al-mono" font-size="10.5" fill="#38bdf8" text-anchor="middle">#Distributed</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- SLIDE 4: Open Source Crafting -->
+      <g class="al-slide-4">
+        <rect x="16" y="16" width="471" height="198" rx="12" fill="#1e1e1a" />
+        <g transform="translate(36, 36)">
+          <circle cx="28" cy="28" r="24" fill="#422006" stroke="#fbbf24" stroke-width="1.5" />
+          <text x="28" y="35" class="al-sans" font-size="20" text-anchor="middle">⚡</text>
+          <text x="70" y="22" class="al-sans" font-size="18" font-weight="700" fill="#f8fafc">Open Source Craftsmanship</text>
+          <text x="70" y="44" class="al-mono" font-size="12" fill="#fbbf24">29 repositories and continuously shipping</text>
+          <text x="0" y="90" class="al-sans" font-size="13.5" fill="#cbd5e1">
+            Writing readable documentation, 100% offline self-tests,
+          </text>
+          <text x="0" y="112" class="al-sans" font-size="13.5" fill="#cbd5e1">
+            and verified CI actions that never fail on phantom external dependencies.
+          </text>
+          <g transform="translate(0, 134)">
+            <rect x="0" y="0" width="94" height="22" rx="6" fill="#422006" />
+            <text x="47" y="15" class="al-mono" font-size="10.5" fill="#fbbf24" text-anchor="middle">#OpenSource</text>
+            <rect x="102" y="0" width="86" height="22" rx="6" fill="#14532d" />
+            <text x="145" y="15" class="al-mono" font-size="10.5" fill="#4ade80" text-anchor="middle">#CleanCode</text>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- Bottom Daily Rings Panel (Fitness / Dedication Rings) -->
+    <g transform="translate(26, 345)">
+      <rect x="0" y="0" width="503" height="120" rx="14" fill="#121522" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+      
+      <!-- Concentric Rings Graphic -->
+      <g transform="translate(68, 60) rotate(-90)">
+        <!-- Outer Ring Track: Cyan (Coding & Architecture) -->
+        <circle cx="0" cy="0" r="40" fill="none" stroke="#22d3ee" stroke-opacity="0.15" stroke-width="8" />
+        <circle class="al-ring-1" cx="0" cy="0" r="40" fill="none" stroke="#22d3ee" stroke-width="8" stroke-linecap="round" />
+
+        <!-- Middle Ring Track: Violet (Research & Reading) -->
+        <circle cx="0" cy="0" r="30" fill="none" stroke="#a78bfa" stroke-opacity="0.15" stroke-width="7" />
+        <circle class="al-ring-2" cx="0" cy="0" r="30" fill="none" stroke="#a78bfa" stroke-width="7" stroke-linecap="round" />
+
+        <!-- Inner Ring Track: Pink (Coffee & Fitness) -->
+        <circle cx="0" cy="0" r="20" fill="none" stroke="#f472b6" stroke-opacity="0.15" stroke-width="6" />
+        <circle class="al-ring-3" cx="0" cy="0" r="20" fill="none" stroke="#f472b6" stroke-width="6" stroke-linecap="round" />
+      </g>
+
+      <!-- Rings Legend & Labels -->
+      <g transform="translate(138, 22)">
+        <text x="0" y="0" class="al-mono" font-size="11" fill="#64748b" font-weight="700">DAILY FOCUS RINGS</text>
+
+        <!-- Ring 1 Legend -->
+        <g transform="translate(0, 18)">
+          <circle cx="5" cy="5" r="4.5" fill="#22d3ee" />
+          <text x="16" y="9" class="al-sans" font-size="12" font-weight="600" fill="#f8fafc">Architecture &amp; Coding</text>
+          <text x="210" y="9" class="al-mono" font-size="11" fill="#22d3ee" font-weight="700">92%</text>
+        </g>
+        <!-- Ring 2 Legend -->
+        <g transform="translate(0, 42)">
+          <circle cx="5" cy="5" r="4.5" fill="#a78bfa" />
+          <text x="16" y="9" class="al-sans" font-size="12" font-weight="600" fill="#f8fafc">Evals &amp; Research</text>
+          <text x="210" y="9" class="al-mono" font-size="11" fill="#a78bfa" font-weight="700">85%</text>
+        </g>
+        <!-- Ring 3 Legend -->
+        <g transform="translate(0, 66)">
+          <circle cx="5" cy="5" r="4.5" fill="#f472b6" />
+          <text x="16" y="9" class="al-sans" font-size="12" font-weight="600" fill="#f8fafc">Cafe Flow &amp; Fitness</text>
+          <text x="210" y="9" class="al-mono" font-size="11" fill="#f472b6" font-weight="700">78%</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

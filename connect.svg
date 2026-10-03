@@ -1,0 +1,260 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="conn_bg_glow" cx="20%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f472b6" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="conn_bg_glow2" cx="80%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0d0e16" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Card Background -->
+    <linearGradient id="conn_card_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#151824" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0e111d" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Border Gradients -->
+    <linearGradient id="conn_border_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f472b6" stop-opacity="0.5" />
+      <stop offset="50%" stop-color="#a78bfa" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.5" />
+    </linearGradient>
+
+    <linearGradient id="conn_neon_text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f472b6" />
+      <stop offset="50%" stop-color="#a78bfa" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+
+    <!-- Dot Pattern -->
+    <pattern id="conn_dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#64748b" fill-opacity="0.1" />
+    </pattern>
+
+    <!-- Glow Filters -->
+    <filter id="conn_neon_filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .conn-mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace; }
+    .conn-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+
+    /* Nudging Arrow Animation */
+    @keyframes conn_nudge {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(7px); }
+    }
+    .conn-arrow {
+      animation: conn_nudge 1.6s ease-in-out infinite;
+    }
+
+    /* Floating Sparkles and Hearts */
+    @keyframes conn_float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-8px) scale(1.08); }
+    }
+    .conn-sparkle1 { animation: conn_float 3.5s ease-in-out infinite; }
+    .conn-sparkle2 { animation: conn_float 4.8s ease-in-out infinite 0.6s; }
+
+    /* Neon Sign Flicker */
+    @keyframes conn_flicker {
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 10px #f472b6); }
+      48% { opacity: 0.95; }
+      50% { opacity: 0.55; }
+      52% { opacity: 1; }
+      82% { opacity: 0.9; }
+      84% { opacity: 0.4; }
+      86% { opacity: 1; }
+    }
+    .conn-neon-sign {
+      animation: conn_flicker 6s infinite;
+    }
+
+    /* Card Glow Hover Effect Simulation */
+    @keyframes conn_pulse_border {
+      0%, 100% { stroke-opacity: 0.3; }
+      50% { stroke-opacity: 0.8; }
+    }
+    .conn-card-border {
+      animation: conn_pulse_border 4s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Canvas Container -->
+  <rect x="0" y="0" width="1200" height="480" rx="24" fill="#0d0e16" />
+  <rect x="0" y="0" width="1200" height="480" fill="url(#conn_bg_glow)" />
+  <rect x="0" y="0" width="1200" height="480" fill="url(#conn_bg_glow2)" />
+  <rect x="0" y="0" width="1200" height="480" fill="url(#conn_dots)" rx="24" />
+  <rect x="1" y="1" width="1198" height="478" rx="23" fill="none" stroke="url(#conn_border_grad)" stroke-width="1.5" />
+
+  <!-- ==================== LEFT: CHARACTER & GLOWING NEON SIGN ==================== -->
+  <g transform="translate(60, 40)">
+    <!-- Header Tag -->
+    <rect x="0" y="0" width="146" height="24" rx="12" fill="#3b1d28" stroke="#f472b6" stroke-width="1" />
+    <text x="73" y="16" class="conn-mono" font-size="11" font-weight="700" fill="#fbcfe8" text-anchor="middle">LET'S CONNECT</text>
+    
+    <text x="0" y="56" class="conn-sans" font-size="28" font-weight="800" fill="#f8fafc">
+      Say Hello &amp; Collaborate
+    </text>
+    <text x="0" y="80" class="conn-sans" font-size="14" fill="#94a3b8">
+      Open for conversations on Agentic AI, high-reliability systems &amp; open source.
+    </text>
+
+    <!-- Pointing Character Art & Neon Sign Container -->
+    <g transform="translate(20, 110)">
+      <!-- Neon Handwritten Sign -->
+      <g transform="translate(240, 20)" class="conn-neon-sign">
+        <rect x="0" y="0" width="168" height="54" rx="14" fill="#151824" stroke="#f472b6" stroke-width="1.8" />
+        <text x="84" y="34" class="conn-mono" font-size="16" font-weight="900" fill="#f472b6" text-anchor="middle" letter-spacing="1">
+          @Revanth2716
+        </text>
+        <circle cx="20" cy="18" r="3" fill="#22d3ee" />
+        <circle cx="148" cy="38" r="3" fill="#f472b6" />
+      </g>
+
+      <!-- Pointing Character Vector Art (Sticker style outline) -->
+      <g transform="translate(60, 10)">
+        <!-- Outer Sticker Glow Outline -->
+        <g stroke="#ffffff" stroke-width="6" stroke-linejoin="round" fill="none" opacity="0.9">
+          <!-- Body Silhouette -->
+          <circle cx="70" cy="50" r="34" />
+          <path d="M 40 120 C 40 80 100 80 100 120 Z" />
+          <!-- Pointing Arm -->
+          <path d="M 95 95 L 175 75 L 195 72" />
+        </g>
+
+        <!-- Inner Colored Body -->
+        <!-- Hair & Head -->
+        <circle cx="70" cy="50" r="32" fill="#0f172a" />
+        <circle cx="70" cy="54" r="26" fill="#fbcfe8" />
+        <!-- Hair top bang -->
+        <path d="M 45 42 Q 70 20 95 42 Q 70 34 45 42 Z" fill="#0f172a" />
+        
+        <!-- Winking Face -->
+        <!-- Left eye (winking curve) -->
+        <path d="M 58 52 Q 63 47 68 52" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+        <!-- Right eye (wide open, smiling) -->
+        <circle cx="78" cy="50" r="3.5" fill="#0f172a" />
+        <circle cx="79.5" cy="48.5" r="1.2" fill="#ffffff" />
+        <!-- Smile -->
+        <path d="M 64 62 Q 72 70 80 62" fill="none" stroke="#e11d48" stroke-width="2.2" stroke-linecap="round" />
+        <circle cx="56" cy="58" r="4" fill="#f472b6" opacity="0.5" />
+        <circle cx="84" cy="58" r="4" fill="#f472b6" opacity="0.5" />
+
+        <!-- Hoodie Jacket -->
+        <path d="M 42 120 C 42 84 98 84 98 120 Z" fill="#1e1b4b" stroke="#a78bfa" stroke-width="2" />
+        <path d="M 62 90 L 70 115 L 78 90" fill="none" stroke="#fbbf24" stroke-width="2" />
+        
+        <!-- Pointing Arm & Hand pointing directly to link cards! -->
+        <path d="M 94 92 L 170 74" stroke="#1e1b4b" stroke-width="12" stroke-linecap="round" />
+        <path d="M 94 92 L 170 74" stroke="#a78bfa" stroke-width="4" stroke-linecap="round" fill="none" />
+        <!-- Pointing Hand & Index Finger -->
+        <circle cx="172" cy="74" r="8" fill="#fbcfe8" />
+        <path d="M 172 74 L 196 70" stroke="#fbcfe8" stroke-width="5" stroke-linecap="round" />
+        
+        <!-- Energy Pulse at Tip of Finger -->
+        <circle cx="198" cy="70" r="4" fill="#22d3ee" filter="url(#conn_neon_filter)" />
+      </g>
+
+      <!-- Floating Sparkles & Hearts around Character -->
+      <g class="conn-sparkle1" transform="translate(10, 40)">
+        <polygon points="8,0 10,6 16,8 10,10 8,16 6,10 0,8 6,6" fill="#f472b6" />
+      </g>
+      <g class="conn-sparkle2" transform="translate(200, 110)">
+        <polygon points="6,0 7,4 12,6 7,8 6,12 5,8 0,6 5,4" fill="#22d3ee" />
+      </g>
+      <g class="conn-sparkle1" transform="translate(40, 150) scale(0.8)">
+        <path d="M 10 5 C 10 2 7 0 5 0 C 2 0 0 2 0 5 C 0 8 5 12 10 16 C 15 12 20 8 20 5 C 20 2 18 0 15 0 C 13 0 10 2 10 5 Z" fill="#f472b6" fill-opacity="0.7" />
+      </g>
+      <g class="conn-sparkle2" transform="translate(230, 95) scale(0.7)">
+        <path d="M 10 5 C 10 2 7 0 5 0 C 2 0 0 2 0 5 C 0 8 5 12 10 16 C 15 12 20 8 20 5 C 20 2 18 0 15 0 C 13 0 10 2 10 5 Z" fill="#22d3ee" fill-opacity="0.6" />
+      </g>
+    </g>
+
+    <!-- Bottom Status Text -->
+    <text x="0" y="380" class="conn-mono" font-size="12" fill="#64748b">
+      📍 Location: Hyderabad, India • Response Time: &lt; 24h
+    </text>
+  </g>
+
+  <!-- ==================== RIGHT: INTERACTIVE LINK CARDS ==================== -->
+  <g transform="translate(580, 50)">
+    <!-- LINK CARD 1: GitHub Profile -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="560" height="82" rx="14" fill="url(#conn_card_bg)" stroke="#38bdf8" stroke-width="1.2" class="conn-card-border" />
+      <!-- Brand Icon: GitHub Octocat -->
+      <rect x="18" y="16" width="50" height="50" rx="10" fill="#1e293b" />
+      <g transform="translate(29, 27) scale(0.055)" fill="#ffffff">
+        <path d="M 256 0 C 114.6 0 0 114.6 0 256 c 0 113.2 73.4 209.2 175.2 243 c 12.8 2.4 17.5 -5.5 17.5 -12.3 c 0 -6.1 -0.2 -22.2 -0.4 -43.6 c -71.2 15.5 -86.2 -34.3 -86.2 -34.3 c -11.6 -29.6 -28.4 -37.5 -28.4 -37.5 c -23.2 -15.9 1.8 -15.6 1.8 -15.6 c 25.7 1.8 39.2 26.4 39.2 26.4 c 22.8 39.1 59.9 27.8 74.5 21.3 c 2.3 -16.5 8.9 -27.8 16.2 -34.2 c -56.8 -6.5 -116.6 -28.4 -116.6 -126.5 c 0 -28 10 -50.8 26.3 -68.8 c -2.6 -6.5 -11.4 -32.5 2.5 -67.9 c 0 0 21.5 -6.9 70.5 26.3 c 20.4 -5.7 42.3 -8.5 64.1 -8.6 c 21.7 0.1 43.7 2.9 64.1 8.6 c 48.9 -33.2 70.4 -26.3 70.4 -26.3 c 14 35.4 5.2 61.4 2.6 67.9 c 16.4 17.9 26.3 40.8 26.3 68.8 c 0 98.4 -59.9 119.9 -116.9 126.3 c 9.2 7.9 17.4 23.5 17.4 47.4 c 0 34.2 -0.3 61.8 -0.3 70.2 c 0 6.9 4.6 14.8 17.7 12.3 C 438.7 465.1 512 369.1 512 256 C 512 114.6 397.4 0 256 0 Z" />
+      </g>
+      <!-- Texts -->
+      <text x="82" y="36" class="conn-sans" font-size="16" font-weight="700" fill="#f8fafc">GitHub</text>
+      <text x="82" y="56" class="conn-mono" font-size="12" fill="#94a3b8">github.com/Revanth2716 • 29 Repositories &amp; Agents</text>
+      <!-- Nudging Arrow -->
+      <g class="conn-arrow" transform="translate(515, 42)">
+        <circle cx="0" cy="0" r="14" fill="#0e2338" />
+        <path d="M -4 -4 L 2 0 L -4 4" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" />
+      </g>
+    </g>
+
+    <!-- LINK CARD 2: LinkedIn -->
+    <g transform="translate(0, 96)">
+      <rect x="0" y="0" width="560" height="82" rx="14" fill="url(#conn_card_bg)" stroke="#60a5fa" stroke-width="1.2" class="conn-card-border" />
+      <!-- Brand Icon: LinkedIn -->
+      <rect x="18" y="16" width="50" height="50" rx="10" fill="#0a66c2" />
+      <g transform="translate(31, 28) scale(0.05)" fill="#ffffff">
+        <path d="M 100 0 C 44.8 0 0 44.8 0 100 l 0 312 c 0 55.2 44.8 100 100 100 l 312 0 c 55.2 0 100 -44.8 100 -100 l 0 -312 c 0 -55.2 -44.8 -100 -100 -100 Z M 160 410 L 96 410 L 96 200 L 160 200 Z M 128 172 C 107.5 172 91 155.5 91 135 C 91 114.5 107.5 98 128 98 C 148.5 98 165 114.5 165 135 C 165 155.5 148.5 172 128 172 Z M 416 410 L 352 410 L 352 306 C 352 281 351.5 249 317 249 C 282 249 277 276 277 304 L 277 410 L 213 410 L 213 200 L 274 200 L 274 229 L 275 229 C 283.5 213 304 196 335 196 C 400 196 416 239 416 295 Z" />
+      </g>
+      <text x="82" y="36" class="conn-sans" font-size="16" font-weight="700" fill="#f8fafc">LinkedIn</text>
+      <text x="82" y="56" class="conn-mono" font-size="12" fill="#94a3b8">linkedin.com/in/revanth-yarramsetti • Connect &amp; Network</text>
+      <g class="conn-arrow" transform="translate(515, 42)">
+        <circle cx="0" cy="0" r="14" fill="#0e2338" />
+        <path d="M -4 -4 L 2 0 L -4 4" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" />
+      </g>
+    </g>
+
+    <!-- LINK CARD 3: Direct Email -->
+    <g transform="translate(0, 192)">
+      <rect x="0" y="0" width="560" height="82" rx="14" fill="url(#conn_card_bg)" stroke="#f472b6" stroke-width="1.2" class="conn-card-border" />
+      <!-- Brand Icon: Email / Mail -->
+      <rect x="18" y="16" width="50" height="50" rx="10" fill="#831843" />
+      <g transform="translate(32, 31)">
+        <rect x="0" y="0" width="22" height="18" rx="3" fill="none" stroke="#ffffff" stroke-width="2" />
+        <path d="M 0 3 L 11 11 L 22 3" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+      </g>
+      <text x="82" y="36" class="conn-sans" font-size="16" font-weight="700" fill="#f8fafc">Email</text>
+      <text x="82" y="56" class="conn-mono" font-size="12" fill="#94a3b8">princerevanth369@gmail.com • Inquiries &amp; Collaborations</text>
+      <g class="conn-arrow" transform="translate(515, 42)">
+        <circle cx="0" cy="0" r="14" fill="#3b1d28" />
+        <path d="M -4 -4 L 2 0 L -4 4" fill="none" stroke="#f472b6" stroke-width="2" stroke-linecap="round" />
+      </g>
+    </g>
+
+    <!-- LINK CARD 4: Interactive Web & Projects -->
+    <g transform="translate(0, 288)">
+      <rect x="0" y="0" width="560" height="82" rx="14" fill="url(#conn_card_bg)" stroke="#34d399" stroke-width="1.2" class="conn-card-border" />
+      <!-- Brand Icon: Web / Globe -->
+      <rect x="18" y="16" width="50" height="50" rx="10" fill="#064e3b" />
+      <g transform="translate(32, 30)">
+        <circle cx="11" cy="11" r="10" fill="none" stroke="#34d399" stroke-width="1.8" />
+        <ellipse cx="11" cy="11" rx="4.5" ry="10" fill="none" stroke="#34d399" stroke-width="1.5" />
+        <line x1="1" y1="11" x2="21" y2="11" stroke="#34d399" stroke-width="1.5" />
+      </g>
+      <text x="82" y="36" class="conn-sans" font-size="16" font-weight="700" fill="#f8fafc">Portfolio &amp; Showcase</text>
+      <text x="82" y="56" class="conn-mono" font-size="12" fill="#94a3b8">revanth2716.github.io • Live Demos &amp; Case Studies</text>
+      <g class="conn-arrow" transform="translate(515, 42)">
+        <circle cx="0" cy="0" r="14" fill="#064e3b" />
+        <path d="M -4 -4 L 2 0 L -4 4" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" />
+      </g>
+    </g>
+  </g>
+</svg>
