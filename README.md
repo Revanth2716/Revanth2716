@@ -7,7 +7,50 @@
     <img alt="Revanth Yarramsetti - Agentic AI Systems Architect" src="banner.svg?v=1" width="100%">
   </picture>
 
-  <br><br>
+</div>
+
+# Revanth Yarramsetti
+
+**B.Tech Computer Science (2024) · Hyderabad, India**
+
+I build AI agent systems, evaluation harnesses, and guardrail pipelines — mostly in
+Python and TypeScript. My focus is making LLM-backed software *verifiable*: deterministic
+scoring instead of vibes, offline testable, with CI gates that actually fail when quality
+regresses.
+
+**Currently open to Software Engineer roles (fresher / entry-level), anywhere in India.**
+
+### What I work with
+
+| Area | Stack |
+|:---|:---|
+| **Backend** | Python, FastAPI, Flask, Node.js, Express, REST APIs |
+| **Frontend** | TypeScript, React, Vite, Tailwind |
+| **Data & AI** | Prisma, PostgreSQL, pgvector, hybrid vector search, RAG |
+| **AI systems** | Agent orchestration, LLM evaluation harnesses, prompt-injection guardrails, MCP |
+| **Testing** | pytest, Vitest, GitHub Actions |
+| **Cloud** | AWS, Azure, Docker |
+
+### Things I've built
+
+- **ForgePilot** — local-first, evaluation-driven agentic software engineer with
+  planner / coder / tester / security agents over a real stdio MCP server.
+- **EvalForge** — deterministic LLM evaluation and safety-guardrail platform with
+  lexical proxy metrics and offline CI gates.
+- **Enterprise AI SupportOps Copilot** — bounded agent orchestration with hybrid RAG,
+  guardrails, Prometheus metrics, and a benchmark suite.
+- **PromptShield** — deterministic LLM security gateway: prompt-injection, secret and
+  PII scanning with explainable policy decisions.
+- **AI Career Intelligence Platform** — full-stack resume/job matching with hybrid
+  vector search, explainable matching, and tool-calling agents.
+- **AI Data Quality** and **AI Inference Gateway** — dataset profiling with anomaly
+  detection, and a deterministic-routing gateway with graceful fallback.
+
+<br>
+
+---
+
+<div align="center">
 
   <!-- QUICK NAVIGATION BADGES -->
   <a href="#-about--engineering-capabilities">
@@ -160,6 +203,32 @@ Verified autonomous systems, guardrail platforms, and cloud infrastructure engin
       </td>
       <td><code>TypeScript</code><br><code>React</code><br><code>pgvector</code></td>
       <td><img src="https://img.shields.io/badge/Search-Hybrid%20Vector-orange?style=flat-square" alt="Search"></td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/Revanth2716/enterprise-ai-supportops-copilot"><b>🏢 Enterprise AI SupportOps Copilot</b></a><br>
+        <sub>Bounded agent orchestration for enterprise support with hybrid RAG</sub>
+      </td>
+      <td>
+        • Bounded LangGraph orchestration with hybrid RAG (BM25 + dense + RRF fusion).<br>
+        • Guardrail layer: prompt-injection, PII and secret scanning on every request.<br>
+        • Benchmark eval suite (15 scenarios) exposed via CLI, REST and dashboard.
+      </td>
+      <td><code>Python</code><br><code>FastAPI</code><br><code>React</code></td>
+      <td><img src="https://img.shields.io/badge/Tests-33%2F33%20Passed-brightgreen?style=flat-square" alt="Tests"></td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/Revanth2716/promptshield"><b>🛡️ PromptShield</b></a><br>
+        <sub>Deterministic security gateway for LLM applications</sub>
+      </td>
+      <td>
+        • Sequential pipe-and-filter gateway: injection, jailbreak, secret &amp; PII scanning.<br>
+        • Explainable risk scoring and policy decisions enforced in code, offline by default.<br>
+        • Single-digit-millisecond latency with no vendor lock-in.
+      </td>
+      <td><code>Python</code><br><code>Guardrails</code><br><code>Security</code></td>
+      <td><img src="https://img.shields.io/badge/Gateway-Offline%20First-blue?style=flat-square" alt="Gateway"></td>
     </tr>
   </tbody>
 </table>
