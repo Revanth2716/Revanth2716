@@ -53,7 +53,7 @@ Open to **Software Engineer** roles (fresher / entry-level), anywhere in India.
 | | |
 |:---|:---|
 | **LinkedIn** | [linkedin.com/in/revanthyarramsett1627i](https://www.linkedin.com/in/revanthyarramsett1627i) |
-| **Email** | princerevanth369@gmail.com |
+| **Email** | yarramsettirevanth27@gmail.com |
 | **GitHub** | [github.com/Revanth2716](https://github.com/Revanth2716) |
 
 <br>
