@@ -215,7 +215,7 @@
         <path d="M 100 0 C 44.8 0 0 44.8 0 100 l 0 312 c 0 55.2 44.8 100 100 100 l 312 0 c 55.2 0 100 -44.8 100 -100 l 0 -312 c 0 -55.2 -44.8 -100 -100 -100 Z M 160 410 L 96 410 L 96 200 L 160 200 Z M 128 172 C 107.5 172 91 155.5 91 135 C 91 114.5 107.5 98 128 98 C 148.5 98 165 114.5 165 135 C 165 155.5 148.5 172 128 172 Z M 416 410 L 352 410 L 352 306 C 352 281 351.5 249 317 249 C 282 249 277 276 277 304 L 277 410 L 213 410 L 213 200 L 274 200 L 274 229 L 275 229 C 283.5 213 304 196 335 196 C 400 196 416 239 416 295 Z" />
       </g>
       <text x="82" y="36" class="conn-sans" font-size="16" font-weight="700" fill="#f8fafc">LinkedIn</text>
-      <text x="82" y="56" class="conn-mono" font-size="12" fill="#94a3b8">linkedin.com/in/revanth-yarramsetti • Connect &amp; Network</text>
+      <text x="82" y="56" class="conn-mono" font-size="12" fill="#94a3b8">linkedin.com/in/revanthyarramsett1627i • Connect &amp; Network</text>
       <g class="conn-arrow" transform="translate(515, 42)">
         <circle cx="0" cy="0" r="14" fill="#0e2338" />
         <path d="M -4 -4 L 2 0 L -4 4" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" />
